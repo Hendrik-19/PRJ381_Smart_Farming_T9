@@ -6,5 +6,6 @@ namespace Smart_Farming.BusinessLogic
 {
     class Location
     {
+        // Location services goes here
     }
 }
