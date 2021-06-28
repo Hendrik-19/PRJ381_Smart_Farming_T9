@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
+using System.Data.SqlClient; // <--added a NuGet Package for this
 
 namespace Smart_Farming.DataAccess
 {
