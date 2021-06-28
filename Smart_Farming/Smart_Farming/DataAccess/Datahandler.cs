@@ -8,31 +8,53 @@ namespace Smart_Farming.DataAccess
 {
     class Datahandler
     {
-        private string connectionString = @"";
+        private string connection = @""; // connection string goes here
 
-        public static DataTable GetDataTable(string Query)
+        SqlConnection conn; // used establish a connection to the SQL server database
+        SqlDataAdapter adapter; // used to convert the data from the database to a datatable
+		SqlCommand command; // used to execute nonquery operations
+
+        public DataTable getData(string query)
         {
-            DataTable data = new DataTable();
+			DataTable table = new DataTable(); // datatable to store the data from the database
+			conn = new SqlConnection(connection); // opens the connection to the database
 
-            //database stuff goes here wheewe figure it out later
+			try
+			{
+				adapter = new SqlDataAdapter(query, conn); // will try to execute the query 
+				adapter.Fill(table); // will fill the table with the data received from the database if the execution was successful
+			}
+			catch (Exception e)
+			{
+				// TODO: Error message popup if the execution of the query fails
+			}
+			finally
+			{
+				conn.Close(); // will ultimatly close the connection to the database once everything has been done
+			}
 
-            //using (MySqlConnection conn = new MySqlConnection(connStr))
-            //{
-            //    try
-            //    {
-            //        conn.Open();
-            //        MySqlDataAdapter adapter = new MySqlDataAdapter(Query, conn);
-            //        adapter.Fill(data);
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        //Console.WriteLine(e.StackTrace);
-            //        MessageBox.Show(string.Format("Error: {0}\n\rSQL: {1}", e.Message, Query), "SQL ERROR");
-            //    }
-            //}
+			return table;
+		}
 
-            return data;
-        }
+		public void executeCRUD(string query)
+        {
+			conn = new SqlConnection(connection);
+			conn.Open();
+			command = new SqlCommand(query, conn);
 
+			try
+			{
+				command.ExecuteNonQuery(); // will try to execute the query
+				//TODO: Messge popup stating the success of the action
+			}
+			catch (Exception e)
+			{
+				//TODO: Error messafe popup if the execution of the query fails
+			}
+			finally
+			{
+				conn.Close();
+			}
+		}
     }
 }
