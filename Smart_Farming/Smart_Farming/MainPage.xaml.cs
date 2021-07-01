@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Essentials; // api that allows location services
+using Smart_Farming.BusinessLogic;
 
 namespace Smart_Farming
 {
@@ -18,6 +19,8 @@ namespace Smart_Farming
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            BusinessLogic.Location loc = new BusinessLogic.Location();
+
             try
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
@@ -37,6 +40,7 @@ namespace Smart_Farming
                 else
                 {
                     LabelLocation.Text = "You have a location"; // need to display info but this will probably be where we load the next page
+                    loc.getResults(location.Latitude, location.Longitude);
                 }
             }
             catch (Exception)
