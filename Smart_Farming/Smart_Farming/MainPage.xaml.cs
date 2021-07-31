@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Essentials; // api that allows location services
 using Smart_Farming.BusinessLogic;
+using System.Net.Http;//base class to perform http functions
+using Newtonsoft.Json;//nuget package to convert json files
 
 namespace Smart_Farming
 {
@@ -41,12 +43,28 @@ namespace Smart_Farming
                 {
                     LabelLocation.Text = "You have a location"; // need to display info but this will probably be where we load the next page
                     loc.getResults(location.Latitude, location.Longitude);
+
+                    using (var client = new HttpClient())
+                    {
+                        // send a GET request  
+                        var uri = "https://api.troposphere.io/climate/"+location.Latitude+","+location.Longitude+"?token=d9d3ad8690f331dbe20920fcaa9837f40607b6c1b274eae389";//url to get the yearly average data from api
+                        var result = await client.GetStringAsync(uri);
+
+                        //handling the answer  
+                        var posts = JsonConvert.DeserializeObject<List<WebResponse>>(result);
+
+                        // generate the output  
+                        var post = posts.First();
+                        lbl.Text = "\nFirst post:\n\n" + post;
+                    }
                 }
             }
             catch (Exception)
             {
                 await DisplayAlert("Alert", "Something went wrong with location services", "OK"); // This is an error message that will display when the app is having dificulties picking up location services
             }
+
+
         }
     }
 }

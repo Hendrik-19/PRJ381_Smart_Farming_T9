@@ -6,6 +6,7 @@
     <StackLayout>
         <Button Text="Search results" Clicked="Button_Clicked"/>
         <Label x:Name="LabelLocation"/>
+        <Label x:Name ="lbl"/>
     </StackLayout>
 
 </ContentPage>
