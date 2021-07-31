@@ -24,7 +24,7 @@ namespace Smart_Farming
             try
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
-                if (location == null) // thios checks of a location saved in the cache, if it is empty then it will request a location
+                if (location == null) // this checks of a location saved in the cache, if it is empty then it will request a location
                 {
                     location = await Geolocation.GetLocationAsync(new GeolocationRequest
                     {
@@ -45,7 +45,7 @@ namespace Smart_Farming
             }
             catch (Exception)
             {
-                //TODO: appropriate error message for something that went wrong
+                await DisplayAlert("Alert", "Something went wrong with location services", "OK"); // This is an error message that will display when the app is having dificulties picking up location services
             }
         }
     }
