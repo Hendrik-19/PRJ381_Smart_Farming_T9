@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Net.Http;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
-using Newtonsoft.Json;
+
 
 namespace Smart_Farming.Droid
 {
