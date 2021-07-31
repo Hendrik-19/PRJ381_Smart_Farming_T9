@@ -6,10 +6,16 @@ namespace Smart_Farming.BusinessLogic
 {
     public class WebResponse
     {
-        string error;
-        List<Weather> monthly = new List<Weather>();
+        int error;
+        webData wData = new webData();
 
-        public string Error { get => error; set => error = value; }
-        public List<Weather> Monthly { get => monthly; set => monthly = value; }
+        public WebResponse(int error, webData wData)
+        {
+            this.error = error;
+            this.wData = wData;
+        }
+
+        public int Error { get => error; set => error = value; }
+        public webData WData { get => wData; set => wData = value; }
     }
 }
