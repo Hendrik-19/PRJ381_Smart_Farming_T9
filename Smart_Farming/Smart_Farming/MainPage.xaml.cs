@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Essentials; // api that allows location services
 using Smart_Farming.BusinessLogic;
-using OpenWeatherMap;
-//using System.Net.Http;//base class to perform http functions
-//using Newtonsoft.Json;//nuget package to convert json files
+using System.Net.Http;//base class to perform http functions
+using Newtonsoft.Json;//nuget package to convert json files
 
 namespace Smart_Farming
 {
@@ -46,20 +45,20 @@ namespace Smart_Farming
                     loc.getResults(location.Latitude, location.Longitude);
 
 
-                    //using (var client = new HttpClient())
-                    //{
-                    //    // send a GET request  
-                    //    var uri = "https://api.troposphere.io/climate/"+location.Latitude+","+location.Longitude+"?token=d9d3ad8690f331dbe20920fcaa9837f40607b6c1b274eae389";//url to get the yearly average data from api
-                    //    var result = await client.GetStringAsync(uri);
+                    using (var client = new HttpClient())
+                    {
+                        // send a GET request  
+                        var uri = "https://api.troposphere.io/climate/" + location.Latitude + "," + location.Longitude + "?token=d9d3ad8690f331dbe20920fcaa9837f40607b6c1b274eae389";//url to get the yearly average data from api
+                        var result = await client.GetStringAsync(uri);
 
-                    //    //handling the answer  
-                    //    var posts = JsonConvert.DeserializeObject<WebResponse>(result);
+                        //handling the answer  
+                        var posts = JsonConvert.DeserializeObject<WebResponse>(result);
 
-                    //    // generate the output  
-                    //    Output.Text += "\nFirst post:\n\n" + posts;
+                        // generate the output  
+                        Output.Text = posts.WData.Monthly[0].ToString();
 
-                    // the Weather, WebResponse and webData classes work alongside this block of code 
-                    //}
+                        //the Weather, WebResponse and webData classes work alongside this block of code
+                    }
                 }
             }
             catch (Exception ex)
