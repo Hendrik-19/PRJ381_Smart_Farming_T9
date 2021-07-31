@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient; // <--added a NuGet Package for this
+using Xamarin.Forms;
 
 namespace Smart_Farming.DataAccess
 {
@@ -26,7 +27,7 @@ namespace Smart_Farming.DataAccess
 			}
 			catch (Exception e)
 			{
-				// TODO: Error message popup if the execution of the query fails
+				App.Current.MainPage.DisplayAlert("Alert", "Could not find results...", "OK"); // Error message that will display on the main form, Not sure what the App.Current.MainPage part does.
 			}
 			finally
 			{
@@ -36,25 +37,5 @@ namespace Smart_Farming.DataAccess
 			return table;
 		}
 
-		public void executeCRUD(string query)
-        {
-			conn = new SqlConnection(connection);
-			conn.Open();
-			command = new SqlCommand(query, conn);
-
-			try
-			{
-				command.ExecuteNonQuery(); // will try to execute the query
-				//TODO: Messge popup stating the success of the action
-			}
-			catch (Exception e)
-			{
-				//TODO: Error messafe popup if the execution of the query fails
-			}
-			finally
-			{
-				conn.Close();
-			}
-		}
     }
 }
