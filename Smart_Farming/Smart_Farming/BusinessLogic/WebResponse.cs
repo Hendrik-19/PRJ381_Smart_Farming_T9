@@ -6,9 +6,13 @@ namespace Smart_Farming.BusinessLogic
 {
     public class WebResponse
     {
-        Nullable<int> error;
         webData wData = new webData();
 
-        
+        public WebResponse(webData wData)
+        {
+            this.wData = wData;
+        }
+
+        public webData WData { get => wData; set => wData = value; }
     }
 }

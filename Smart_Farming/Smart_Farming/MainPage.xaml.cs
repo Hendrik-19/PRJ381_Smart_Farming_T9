@@ -44,7 +44,6 @@ namespace Smart_Farming
                     LabelLocation.Text = "You have a location"; // need to display info but this will probably be where we load the next page
                     loc.getResults(location.Latitude, location.Longitude);
 
-
                     using (var client = new HttpClient())
                     {
                         // send a GET request  
