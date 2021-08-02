@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Smart_Farming.DataAccess
 {
-    class Datahandler
+    public class Datahandler
     {
         private string connection = @""; // connection string goes here
 
