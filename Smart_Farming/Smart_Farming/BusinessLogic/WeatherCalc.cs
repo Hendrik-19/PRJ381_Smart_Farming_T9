@@ -8,32 +8,50 @@ namespace Smart_Farming.BusinessLogic
     {
         /*
          * 1:Use list of 12 months data recieved from API to calculate avg values for location
-         * 2:Return calculated avg values to location
+         * 2:Return calculated avg values
          */
 
-        public double getAvgMaxTemp(Location loc)
+        public double getAvgMaxTemp(List<Weather> weath)
         {
             double locMaxAvg = 0;
 
             //logic
+            foreach (var data in weath)
+            {
+                locMaxAvg += data.TemperatureMax;
+            }
+
+            locMaxAvg = locMaxAvg / 12;
 
             return locMaxAvg;
         }
 
-        public double getAvgMinTemp(Location loc)
+        public double getAvgMinTemp(List<Weather> weath)
         {
             double locMinAvg = 0;
 
             //logic
+            foreach (var data in weath)
+            {
+                locMinAvg += data.TemperatureMin;
+            }
+
+            locMinAvg = locMinAvg / 12;
 
             return locMinAvg;
         }
 
-        public double getAvgPrecipitation(Location loc)
+        public double getAvgPrecipitation(List<Weather> weath)
         {
             double locPrecAvg = 0;
 
             //logic
+            foreach (var data in weath)
+            {
+                locPrecAvg = data.TotalPrecipitation;
+            }
+
+            locPrecAvg = locPrecAvg / 12;
 
             return locPrecAvg;
         }
