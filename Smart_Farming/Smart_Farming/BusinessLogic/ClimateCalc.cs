@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Smart_Farming.DataAccess;
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -15,9 +16,15 @@ namespace Smart_Farming.BusinessLogic
 
         public int assignClimate(Location loc)
         {
+            Datahandler handler = new Datahandler();
             List<Climates> climateList = new List<Climates>();
             int LocationClimateID = 0;
-            //logic
+            string query = $"";//TODO:complete query
+
+            //climateList.AddRange(handler.getData(query)); //TODO:Implement Datatable to list conversion
+            
+            //logic //TODO: complete logic
+
 
             return LocationClimateID;
         }
