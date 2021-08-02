@@ -42,7 +42,9 @@ namespace Smart_Farming
                 else
                 {
                     LabelLocation.Text = "You have a location"; // need to display info but this will probably be where we load the next page
-                    loc.getResults(location.Latitude, location.Longitude);
+                    loc.Latidue = location.Latitude;
+                    loc.Longitude = location.Longitude;
+                    //loc.getResults();
 
                     using (var client = new HttpClient())
                     {
@@ -51,10 +53,10 @@ namespace Smart_Farming
                         var result = await client.GetStringAsync(uri);
 
                         //handling the answer  
-                        var posts = JsonConvert.DeserializeObject<WebResponse>(result);
+                        var posts = JsonConvert.DeserializeObject<webData>(result);
 
                         // generate the output  
-                        Output.Text = posts.WData.Monthly[0].ToString();
+                        Output.Text = posts.Monthly.Count().ToString();//this was just to see if the list gets populated by the api
 
                         //the Weather, WebResponse and webData classes work alongside this block of code
                     }

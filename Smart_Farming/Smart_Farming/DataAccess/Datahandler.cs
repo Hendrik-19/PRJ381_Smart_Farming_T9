@@ -13,7 +13,6 @@ namespace Smart_Farming.DataAccess
 
         SqlConnection conn; // used establish a connection to the SQL server database
         SqlDataAdapter adapter; // used to convert the data from the database to a datatable
-		SqlCommand command; // used to execute nonquery operations
 
         public DataTable getData(string query)
         {
