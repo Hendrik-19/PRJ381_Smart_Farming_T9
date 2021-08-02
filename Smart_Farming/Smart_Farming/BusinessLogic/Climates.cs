@@ -45,5 +45,10 @@ namespace Smart_Farming.BusinessLogic
             hashCode = hashCode * -1521134295 + avgPercipitation.GetHashCode();
             return hashCode;
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
