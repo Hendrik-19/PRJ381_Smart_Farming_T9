@@ -9,7 +9,7 @@ namespace Smart_Farming.BusinessLogic
     public class Convertion
     {
         // this class is used to convert a datatable to a list
-
+        #region Convertion
         public List<T> ConvertDataTable<T>(DataTable table)
         {
             List<T> list = new List<T>();
@@ -43,5 +43,6 @@ namespace Smart_Farming.BusinessLogic
 
             return obj;
         }
+        #endregion
     }
 }

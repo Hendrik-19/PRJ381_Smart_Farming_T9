@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms; // if we need some popup messages
+using System.Net.Http;//base class to perform http functions
+using Newtonsoft.Json;//nuget package to convert json files
 
 namespace Smart_Farming.BusinessLogic
 {
     class Climates
     {
+        #region Climate
         int climateId;
         string climateName;
         double avgMaxTemp, avgMinTemp, avgPercipitation;
@@ -50,5 +54,13 @@ namespace Smart_Farming.BusinessLogic
         {
             return base.ToString();
         }
+        #endregion
+
+        #region Functionality
+        public void GetClimate()
+        {
+            //in here once we have the coordinates we can call the Api to get the data for the climate
+        }
+        #endregion
     }
 }

@@ -6,6 +6,7 @@ namespace Smart_Farming.BusinessLogic
 {
     public class Weather
     {
+        #region Weather
         int month;
         double temperatureMin, temperatureMax, totalPrecipitation, cloudCover, sunshineHours;
 
@@ -53,5 +54,6 @@ namespace Smart_Farming.BusinessLogic
         {
             return base.ToString();
         }
+        #endregion
     }
 }

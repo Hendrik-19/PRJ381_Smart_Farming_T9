@@ -9,6 +9,7 @@ namespace Smart_Farming.DataAccess
 {
     public class Datahandler
     {
+        #region Database
         private string connection = @""; // connection string goes here
 
         SqlConnection conn; // used establish a connection to the SQL server database
@@ -35,6 +36,6 @@ namespace Smart_Farming.DataAccess
 
 			return table;
 		}
-
+        #endregion
     }
 }

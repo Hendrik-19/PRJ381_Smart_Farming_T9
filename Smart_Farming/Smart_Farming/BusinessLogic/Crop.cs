@@ -6,6 +6,7 @@ namespace Smart_Farming.BusinessLogic
 {
     public class Crop
     {
+        #region Crop
         // private fields
         private string name, location, description, addInfo;
 
@@ -56,5 +57,6 @@ namespace Smart_Farming.BusinessLogic
         {
             return base.ToString();
         }
+        #endregion
     }
 }

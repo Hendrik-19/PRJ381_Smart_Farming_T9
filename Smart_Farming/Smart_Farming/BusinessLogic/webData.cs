@@ -6,6 +6,7 @@ namespace Smart_Farming.BusinessLogic
 {
     public class webData
     {
+        #region webData
         List<Weather> monthly = new List<Weather>();
 
         public webData(List<Weather> monthly)
@@ -17,4 +18,5 @@ namespace Smart_Farming.BusinessLogic
 
         public List<Weather> Monthly { get => monthly; set => monthly = value; }
     }
+    #endregion
 }

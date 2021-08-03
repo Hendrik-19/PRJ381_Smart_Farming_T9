@@ -6,6 +6,7 @@ namespace Smart_Farming.BusinessLogic
 {
     public class WebResponse
     {
+        #region webResponse
         webData wData = new webData();
 
         public WebResponse(webData wData)
@@ -14,5 +15,6 @@ namespace Smart_Farming.BusinessLogic
         }
 
         public webData WData { get => wData; set => wData = value; }
+        #endregion
     }
 }
