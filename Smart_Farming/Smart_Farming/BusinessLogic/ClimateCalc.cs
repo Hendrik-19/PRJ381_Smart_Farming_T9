@@ -19,7 +19,7 @@ namespace Smart_Farming.BusinessLogic
         public int assignClimate(Location loc)
         {
             int LocationClimateID = 0;
-            string query = $"";//TODO:complete query
+            string query = $"SELECT * FROM Climates";
 
             Datahandler handler = new Datahandler();
             Convertion convert = new Convertion();
