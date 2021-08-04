@@ -7,13 +7,16 @@ namespace Smart_Farming.BusinessLogic
     public class WebResponse
     {
         #region webResponse
+        Nullable<int> error;
         webData wData = new webData();
 
-        public WebResponse(webData wData)
+        public WebResponse(int? error, webData wData)
         {
+            this.error = error;
             this.wData = wData;
         }
 
+        public int? Error { get => error; set => error = value; }
         public webData WData { get => wData; set => wData = value; }
         #endregion
     }
