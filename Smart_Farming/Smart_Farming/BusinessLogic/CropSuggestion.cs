@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Smart_Farming.DataAccess;
+using System.Data; // this is to use a datatable
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -15,9 +16,17 @@ namespace Smart_Farming.BusinessLogic
         public List<Crop> getCrops(Location loc) //TODO: Edit query as needed and fix list filling logic
         {
             Datahandler handler = new Datahandler();
-            List<Crop> crops = new List<Crop>();
+            Convertion convert = new Convertion();
+
             //example query, could change if database gets changed. Could be incorrect, I'm no DBA
             string query = $"SELECT * FROM Crops JOIN Climate ON Climate.Climate_ID = Crops.Climate_ID WHERE Crops.Climate_ID = {loc.ClimateID}";
+
+            DataTable temp = new DataTable();
+            temp = handler.getData(query);
+
+            List<Crop> crops = new List<Crop>();
+            crops = convert.ConvertDataTable<Crop>(temp);
+            
 
             //logic
             //Execute query to fill crops.

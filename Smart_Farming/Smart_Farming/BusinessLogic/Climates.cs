@@ -57,7 +57,7 @@ namespace Smart_Farming.BusinessLogic
         #endregion
 
         #region Functionality
-        public void GetClimate()
+        public void GetClimate(double lat, double lon)
         {
             //in here once we have the coordinates we can call the Api to get the data for the climate
         }
