@@ -22,7 +22,7 @@ namespace Smart_Farming
         private async void Button_Clicked(object sender, EventArgs e)//TODO: move stuff
         {
             BusinessLogic.Location loc = new BusinessLogic.Location();
-
+            //TODO: create component to handle multiple crops as output
             try
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
