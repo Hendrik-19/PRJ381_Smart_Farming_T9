@@ -19,18 +19,13 @@ namespace Smart_Farming.BusinessLogic
             Convertion convert = new Convertion();
 
             //example query, could change if database gets changed. Could be incorrect, I'm no DBA
-            string query = $"SELECT * FROM Crops JOIN Climate ON Climate.Climate_ID = Crops.Climate_ID WHERE Crops.Climate_ID = {loc.ClimateID}";
+            string query = $"SELECT * FROM Crops JOIN Climate ON Climate.Climate_ID = Crops.Climate_ID WHERE Crops.Climate_ID = {loc.ClimateID}"; // TODO: fix query if needed
 
             DataTable temp = new DataTable();
             temp = handler.getData(query);
 
             List<Crop> crops = new List<Crop>();
             crops = convert.ConvertDataTable<Crop>(temp);
-            
-
-            //logic
-            //Execute query to fill crops.
-            //crops.AddRange(handler.getData(query)); //TODO: Implement datatable to list conversion
 
             return crops;
         }
