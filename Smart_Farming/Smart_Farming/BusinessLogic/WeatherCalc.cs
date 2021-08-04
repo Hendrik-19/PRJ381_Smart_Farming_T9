@@ -10,7 +10,7 @@ namespace Smart_Farming.BusinessLogic
          * 1:Use list of 12 months data recieved from API to calculate avg values for location
          * 2:Return calculated avg values
          */
-
+        #region Functionality
         public double getAvgMaxTemp(List<Weather> weath)
         {
             double locMaxAvg = 0;
@@ -55,5 +55,6 @@ namespace Smart_Farming.BusinessLogic
 
             return locPrecAvg;
         }
+        #endregion
     }
 }

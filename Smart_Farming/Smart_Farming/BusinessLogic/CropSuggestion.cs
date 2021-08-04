@@ -11,7 +11,7 @@ namespace Smart_Farming.BusinessLogic
          * 1: Use the climate assigned to the location to populate a crop list
          * 2: Return the crop list to be displayed to user
          */
-
+        #region Functionality
         public List<Crop> getCrops(Location loc) //TODO: Edit query as needed and fix list filling logic
         {
             Datahandler handler = new Datahandler();
@@ -25,5 +25,6 @@ namespace Smart_Farming.BusinessLogic
 
             return crops;
         }
+        #endregion
     }
 }
