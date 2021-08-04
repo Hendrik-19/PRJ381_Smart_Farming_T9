@@ -32,6 +32,31 @@ namespace Smart_Farming.BusinessLogic
 
             //logic //TODO: complete logic
 
+            /*
+             * 1: Loop climate list
+             * 2: Compare current location vals to indexed climate vals
+             * 3: If location vals are within a certain variance of indexed climate -> assign indexed climate id to location.climateId
+             */
+
+            foreach (var climate in climateList)
+            {
+                //TODO: When testing, reduce variance if climate zones conflict
+
+                //TODO: make percipitation criteria
+
+                //Climate assignment criteria:
+                // (climate.min - variance < min < climate.min + variance) AND ( climate.max - varience < max < climate.max + variance) AND (persipitation stuff)
+                
+                if ((climate.AvgMinTemp - 6.55 <= loc.AvgMinTemp || loc.AvgMinTemp <= climate.AvgMinTemp + 6.55) && (climate.AvgMaxTemp - 8.45 <= loc.AvgMaxTemp || loc.AvgMaxTemp <= climate.AvgMaxTemp + 8.45) /*&& (Persipitation stuff) */) 
+                {
+                    LocationClimateID = climate.ClimateId;//Climate assigned
+                }
+            }
+
+            if (LocationClimateID == 0)//no climate was assigned
+            {
+                App.Current.MainPage.DisplayAlert("Alert","Could not assign climate","OK");
+            }
 
             return LocationClimateID;
         }
