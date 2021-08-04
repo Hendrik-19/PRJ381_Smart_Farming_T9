@@ -53,10 +53,10 @@ namespace Smart_Farming
                         var result = await client.GetStringAsync(uri);
 
                         //handling the answer  
-                        var posts = JsonConvert.DeserializeObject<webData>(result);
+                        var posts = JsonConvert.DeserializeObject<WebResponse>(result);
 
                         // generate the output  
-                        Output.Text = posts.Monthly.Count().ToString();//this was just to see if the list gets populated by the api
+                        Output.Text = posts.WData.Monthly.Count().ToString();//this was just to see if the list gets populated by the api
 
                         //the Weather, WebResponse and webData classes work alongside this block of code
                     }
