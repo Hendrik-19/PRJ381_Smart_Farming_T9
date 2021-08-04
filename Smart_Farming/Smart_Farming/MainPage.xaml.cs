@@ -19,7 +19,7 @@ namespace Smart_Farming
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)//TODO: move stuff
         {
             BusinessLogic.Location loc = new BusinessLogic.Location();
 

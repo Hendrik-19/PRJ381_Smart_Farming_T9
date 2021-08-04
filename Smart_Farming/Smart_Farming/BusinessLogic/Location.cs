@@ -76,6 +76,18 @@ namespace Smart_Farming.BusinessLogic
             // once we have the locations services and the climate sorted out we can just move it from the front end to here.
         }
 
+        public void assignWeatherAvg()
+        {
+            WeatherCalc weatherCalc = new WeatherCalc();
+
+            //TODO: get the weather list
+
+            //this.AvgMaxTemp = weatherCalc.getAvgMaxTemp();
+            //this.AvgMinTemp = weatherCalc.getAvgMinTemp();
+            //this.AvgPercipitation = weatherCalc.getAvgPrecipitation();
+
+        }
+
         #endregion
     }
 }
