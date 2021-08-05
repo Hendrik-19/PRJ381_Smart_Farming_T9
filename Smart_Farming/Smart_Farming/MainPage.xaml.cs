@@ -56,7 +56,7 @@ namespace Smart_Farming
                         var posts = JsonConvert.DeserializeObject<WebResponse>(result);
 
                         // generate the output  
-                        Output.Text = posts.WData.Monthly.Count().ToString();//this was just to see if the list gets populated by the api
+                        Output.Text = posts.Data.Monthly.Count().ToString();//this was just to see if the list gets populated by the api
 
                         //the Weather, WebResponse and webData classes work alongside this block of code
                     }
