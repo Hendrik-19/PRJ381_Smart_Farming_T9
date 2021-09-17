@@ -42,9 +42,9 @@ namespace Smart_Farming.BusinessLogic
             foreach (var climate in climateList)
             {
                 //Climate assignment criteria:
-                // (climate.min - variance < min < climate.min + variance) AND ( climate.max - varience < max < climate.max + variance) AND (persipitation stuff)
+                // (climate.min <= min <= climate.min) AND ( climate.max <= max <= climate.max) AND (climate.minPercipitation <= percipitation <= climate.maxPercipitation)
                 
-                if ((climate.AvgMinTemp - 6.55 <= minTemp || minTemp <= climate.AvgMinTemp + 6.55) && (climate.AvgMaxTemp - 8.45 <= maxTemp || maxTemp <= climate.AvgMaxTemp + 8.45) /*&& (Persipitation stuff) */) 
+                if ((climate.AvgMinTemp <= minTemp) && (maxTemp <= climate.AvgMaxTemp) && (climate.MinPercipitation <= avePercipitation) && (avePercipitation <= climate.MaxPercipitation)) 
                 {
                     LocationClimateID = climate.ClimateId;//Climate assigned
                 }
