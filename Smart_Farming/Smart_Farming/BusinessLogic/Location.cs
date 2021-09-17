@@ -71,9 +71,39 @@ namespace Smart_Farming.BusinessLogic
             // stuff to be done
         }
 
-        public void GetLocation()
+        Climates climate = new Climates();
+
+        public async void  GetLocation()
         {
-            // once we have the locations services and the climate sorted out we can just move it from the front end to here.
+            try
+            {
+                var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
+                if (location == null) // this checks of a location saved in the cache, if it is empty then it will request a location
+                {
+                    location = await Geolocation.GetLocationAsync(new GeolocationRequest
+                    {
+                        DesiredAccuracy = GeolocationAccuracy.Medium,
+                        Timeout = TimeSpan.FromSeconds(30) // if the app takes more than 30 seconds to get a location it will go to the catch 
+                    });
+                }
+
+                if (location == null)
+                {
+                    LabelLocation.Text = "No GPS"; // if the result is still empty it will give a message showing that there is no location
+                }
+                else
+                {
+                    LabelLocation.Text = "You have a location"; // need to display info but this will probably be where we load the next page
+                    Latidue = location.Latitude;
+                    Longitude = location.Longitude;
+
+                    climate.getWeatherStats(Latidue, Longitude);
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Alert", ex.Message, "OK"); // This is an error message that will display when the app is having dificulties picking up location services
+            }
         }
 
         public void assignWeatherAvg()

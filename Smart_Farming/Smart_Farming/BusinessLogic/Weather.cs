@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Smart_Farming.BusinessLogic
 {
     public class Weather
@@ -26,6 +27,8 @@ namespace Smart_Farming.BusinessLogic
             this.cloudCover = cloudCover;
             this.sunshineHours = sunshineHours;
         }
+
+        public Weather() { }
 
         public override bool Equals(object obj)
         {
