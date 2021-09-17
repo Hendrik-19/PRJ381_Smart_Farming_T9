@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Smart_Farming.DataAccess;
-using System.Data; //  needed to create a datatable
+using System.Data; //needed to create a datatable
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -16,7 +16,7 @@ namespace Smart_Farming.BusinessLogic
          */
 
         #region Functionality
-        public int assignClimate(Location loc)
+        public int assignClimate(double maxTemp, double minTemp, double avePercipitation)
         {
             int LocationClimateID = 0;
             string query = $"SELECT * FROM Climates";
@@ -30,24 +30,21 @@ namespace Smart_Farming.BusinessLogic
             List<Climates> climateList = new List<Climates>();
             climateList  = convert.ConvertDataTable<Climates>(temp);
 
-            //logic //TODO: complete logic
+            //logic //TODO: Tweak Algorithm as needed
 
             /*
              * 1: Loop climate list
              * 2: Compare current location vals to indexed climate vals
              * 3: If location vals are within a certain variance of indexed climate -> assign indexed climate id to location.climateId
+             * 4: Else continue looping
              */
 
             foreach (var climate in climateList)
             {
-                //TODO: When testing, reduce variance if climate zones conflict
-
-                //TODO: make percipitation criteria
-
                 //Climate assignment criteria:
                 // (climate.min - variance < min < climate.min + variance) AND ( climate.max - varience < max < climate.max + variance) AND (persipitation stuff)
                 
-                if ((climate.AvgMinTemp - 6.55 <= loc.AvgMinTemp || loc.AvgMinTemp <= climate.AvgMinTemp + 6.55) && (climate.AvgMaxTemp - 8.45 <= loc.AvgMaxTemp || loc.AvgMaxTemp <= climate.AvgMaxTemp + 8.45) /*&& (Persipitation stuff) */) 
+                if ((climate.AvgMinTemp - 6.55 <= minTemp || minTemp <= climate.AvgMinTemp + 6.55) && (climate.AvgMaxTemp - 8.45 <= maxTemp || maxTemp <= climate.AvgMaxTemp + 8.45) /*&& (Persipitation stuff) */) 
                 {
                     LocationClimateID = climate.ClimateId;//Climate assigned
                 }
@@ -55,7 +52,7 @@ namespace Smart_Farming.BusinessLogic
 
             if (LocationClimateID == 0)//no climate was assigned
             {
-                App.Current.MainPage.DisplayAlert("Alert","Could not assign climate","OK");
+                App.Current.MainPage.DisplayAlert("Alert","Could not assign climate to your location","OK");
             }
 
             return LocationClimateID;
