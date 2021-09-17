@@ -15,6 +15,8 @@ namespace Smart_Farming.BusinessLogic
         string climateName;
         double avgMaxTemp, avgMinTemp, avgPercipitation;
 
+        List<double> averages = new List<double>();
+
         public Climates(int climateId, string climateName, double avgMaxTemp, double avgMinTemp, double avgPercipitation)
         {
             ClimateId = climateId;
@@ -60,11 +62,13 @@ namespace Smart_Farming.BusinessLogic
         #endregion
 
         #region Functionality
-        public async Location getWeatherStats(double Latitude, double Longitude)
+        public async void getWebResponse(double Latitude, double Longitude)
         {
-            Location loc = new Location();
 
-            using (var client = new HttpClient())
+            List<double> ave = new List<double>();
+            WeatherCalc wc = new WeatherCalc();
+
+            using (var client = new HttpClient())//the Weather, WebResponse and webData classes work alongside this block of code
             {
 
                 // send a GET request  
@@ -74,15 +78,22 @@ namespace Smart_Farming.BusinessLogic
                 //handling the answer  
                 var posts = JsonConvert.DeserializeObject<WebResponse>(result);
 
-                // generate the output  
-                Output.Text = posts.Data.Monthly.Count().ToString();//this was just to see if the list gets populated by the api
-
-                //the Weather, WebResponse and webData classes work alongside this block of code
-
-                
+                //takes list as parameter to calculate average values
+                ave.Add(wc.getAvgMaxTemp(posts.Data.Monthly));
+                ave.Add(wc.getAvgMinTemp(posts.Data.Monthly));
+                ave.Add(wc.getAvgPrecipitation(posts.Data.Monthly));
             }
 
-            return loc;
+             //Assign ave list to averages list so that it can be returned
+             averages = ave;
+        }
+
+        public List<double> getWeatherStats(double Latitude, double Longitude)
+        {
+            getWebResponse(Latitude,Longitude);
+
+            //Return averages
+            return averages;
         }
         #endregion
     }
