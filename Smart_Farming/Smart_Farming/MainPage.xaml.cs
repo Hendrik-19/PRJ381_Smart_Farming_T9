@@ -17,12 +17,17 @@ namespace Smart_Farming
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)//TODO: move stuff
+        private async void Button_Clicked(object sender, EventArgs e)
         {
+            //TODO: create component to handle multiple crops as output and possibly a second page to display output
             BusinessLogic.Location loc = new BusinessLogic.Location();
-            //TODO: create component to handle multiple crops as output
-
             loc.GetLocation();
+
+            BusinessLogic.CropSuggestion suggestion = new CropSuggestion();
+            
+            List<Crop> crops = new List<Crop>();
+
+            crops = suggestion.getCrops(loc); //TODO: do the output stuff
         }
     }
 }
