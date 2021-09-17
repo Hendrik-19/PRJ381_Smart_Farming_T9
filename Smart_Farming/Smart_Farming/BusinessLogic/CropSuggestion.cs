@@ -13,7 +13,7 @@ namespace Smart_Farming.BusinessLogic
          * 2: Return the crop list to be displayed to user
          */
         #region Functionality
-        public List<Crop> getCrops(Location loc) //TODO: Edit query as needed and fix list filling logic
+        public List<Crop> getCrops(Location loc)
         {
             Datahandler handler = new Datahandler();
             Convertion convert = new Convertion();
