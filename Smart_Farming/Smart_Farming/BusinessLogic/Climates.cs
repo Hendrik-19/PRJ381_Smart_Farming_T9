@@ -13,46 +13,27 @@ namespace Smart_Farming.BusinessLogic
         #region Climate
         int climateId;
         string climateName;
-        double avgMaxTemp, avgMinTemp, avgPercipitation;
+        double avgMaxTemp, avgMinTemp, minPercipitation, maxPercipitation;
 
         List<double> averages = new List<double>();
-
-        public Climates(int climateId, string climateName, double avgMaxTemp, double avgMinTemp, double avgPercipitation)
-        {
-            ClimateId = climateId;
-            ClimateName = climateName;
-            AvgMaxTemp = avgMaxTemp;
-            AvgMinTemp = avgMinTemp;
-            AvgPercipitation = avgPercipitation;
-        }
-
-        public Climates () { }
 
         public int ClimateId { get => climateId; set => climateId = value; }
         public string ClimateName { get => climateName; set => climateName = value; }
         public double AvgMaxTemp { get => avgMaxTemp; set => avgMaxTemp = value; }
         public double AvgMinTemp { get => avgMinTemp; set => avgMinTemp = value; }
-        public double AvgPercipitation { get => avgPercipitation; set => avgPercipitation = value; }
+        public double MinPercipitation { get => minPercipitation; set => minPercipitation = value; }
+        public double MaxPercipitation { get => maxPercipitation; set => maxPercipitation = value; }
 
-        public override bool Equals(object obj)
-        {
-            return obj is Climates climates &&
-                   climateId == climates.climateId &&
-                   climateName == climates.climateName &&
-                   avgMaxTemp == climates.avgMaxTemp &&
-                   avgMinTemp == climates.avgMinTemp &&
-                   avgPercipitation == climates.avgPercipitation;
-        }
+        public Climates () { }
 
-        public override int GetHashCode()
+        public Climates(int climateId, string climateName, double avgMaxTemp, double avgMinTemp, double minPercipitation, double maxPercipitation)
         {
-            int hashCode = 1697169136;
-            hashCode = hashCode * -1521134295 + climateId.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(climateName);
-            hashCode = hashCode * -1521134295 + avgMaxTemp.GetHashCode();
-            hashCode = hashCode * -1521134295 + avgMinTemp.GetHashCode();
-            hashCode = hashCode * -1521134295 + avgPercipitation.GetHashCode();
-            return hashCode;
+            ClimateId = climateId;
+            ClimateName = climateName;
+            AvgMaxTemp = avgMaxTemp;
+            AvgMinTemp = avgMinTemp;
+            MinPercipitation = minPercipitation;
+            MaxPercipitation = maxPercipitation;
         }
 
         public override string ToString()
@@ -94,6 +75,29 @@ namespace Smart_Farming.BusinessLogic
 
             //Return averages
             return averages;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Climates climates &&
+                   ClimateId == climates.ClimateId &&
+                   ClimateName == climates.ClimateName &&
+                   AvgMaxTemp == climates.AvgMaxTemp &&
+                   AvgMinTemp == climates.AvgMinTemp &&
+                   MinPercipitation == climates.MinPercipitation &&
+                   MaxPercipitation == climates.MaxPercipitation;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 712991018;
+            hashCode = hashCode * -1521134295 + ClimateId.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ClimateName);
+            hashCode = hashCode * -1521134295 + AvgMaxTemp.GetHashCode();
+            hashCode = hashCode * -1521134295 + AvgMinTemp.GetHashCode();
+            hashCode = hashCode * -1521134295 + MinPercipitation.GetHashCode();
+            hashCode = hashCode * -1521134295 + MaxPercipitation.GetHashCode();
+            return hashCode;
         }
         #endregion
     }
