@@ -75,6 +75,8 @@ namespace Smart_Farming.BusinessLogic
 
         public async void  GetLocation()
         {
+            List<double> ave = new List<double>();
+
             try
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
@@ -89,35 +91,31 @@ namespace Smart_Farming.BusinessLogic
 
                 if (location == null)
                 {
-                    LabelLocation.Text = "No GPS"; // if the result is still empty it will give a message showing that there is no location
+                    await App.Current.MainPage.DisplayAlert("Alert","Could not detect user location","OK"); //Output an error if location can't be found
                 }
                 else
                 {
-                    LabelLocation.Text = "You have a location"; // need to display info but this will probably be where we load the next page
-                    Latidue = location.Latitude;
-                    Longitude = location.Longitude;
+                    this.Latidue = location.Latitude;
+                    this.Longitude = location.Longitude;
 
-                    climate.getWeatherStats(Latidue, Longitude);
+                    //assigns max temp, min temp and average percipitiation to location from API
+                    Climates climate = new Climates();
+                    ave = climate.getWeatherStats(this.Latidue, this.Longitude);
+
+                    this.avgMaxTemp = ave[0];
+                    this.avgMinTemp = ave[1];
+                    this.avgPercipitation = ave[2];
+
+                    //assign climate to location
+                    ClimateCalc cc = new ClimateCalc();
+                    this.ClimateID = cc.assignClimate(this.avgMaxTemp, this.avgMinTemp, this.avgPercipitation);
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Alert", ex.Message, "OK"); // This is an error message that will display when the app is having dificulties picking up location services
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK"); // This is an error message that will display when the app is having dificulties picking up location services
             }
         }
-
-        public void assignWeatherAvg()
-        {
-            WeatherCalc weatherCalc = new WeatherCalc();
-
-            //TODO: get the weather list
-
-            //this.AvgMaxTemp = weatherCalc.getAvgMaxTemp();
-            //this.AvgMinTemp = weatherCalc.getAvgMinTemp();
-            //this.AvgPercipitation = weatherCalc.getAvgPrecipitation();
-
-        }
-
         #endregion
     }
 }
