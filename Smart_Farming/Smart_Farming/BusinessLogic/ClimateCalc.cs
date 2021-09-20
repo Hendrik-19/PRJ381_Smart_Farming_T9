@@ -39,7 +39,7 @@ namespace Smart_Farming.BusinessLogic
              * 4: Else continue looping
              */
 
-            foreach (var climate in climateList)
+            foreach (var climate in climateList)//TODO:Look at ways to handle edge cases as needed
             {
                 //Climate assignment criteria:
                 // (climate.min <= min <= climate.min) AND ( climate.max <= max <= climate.max) AND (climate.minPercipitation <= percipitation <= climate.maxPercipitation)

@@ -17,7 +17,6 @@ namespace Smart_Farming.BusinessLogic
         {
             Datahandler handler = new Datahandler();
             Convertion convert = new Convertion();
-            //TODO:Think of ways to handle edge cases
             //example query, could change if database gets changed. Could be incorrect, I'm no DBA
             string query = $"SELECT * FROM Crops JOIN Climate ON Climate.Climate_ID = Crops.Climate_ID WHERE Crops.Climate_ID = {loc.ClimateID}"; // TODO: fix query if needed
 
