@@ -8,7 +8,7 @@ namespace Smart_Farming.BusinessLogic
     {
         #region Crop
         // private fields
-        private string name, location, description, addInfo;
+        private string name, location, description, addInfo;//TODO:Add attributes from database
 
         // public properties
         public string Name { get => name; set => name = value; }
