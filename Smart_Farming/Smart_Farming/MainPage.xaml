@@ -4,9 +4,43 @@
              x:Class="Smart_Farming.MainPage">
 
     <StackLayout>
-        <Button Text="Search results" Clicked="Button_Clicked"/>
-        <Label x:Name="LabelLocation"/>
-        <Label x:Name="Output" />
+        <Frame BackgroundColor="LightBlue"  Padding="24"  CornerRadius="0">
+
+            <Label 
+                Text="Welcome to Smart Farming!" HorizontalTextAlignment="Center" 
+                   TextColor="Black"  FontSize="36"/>
+        </Frame>
+
+
+        <Label 
+            Text="Get Started With smart farming now !" 
+               HorizontalTextAlignment="Center" FontSize="Title" 
+            Padding="30,60,30,10" TextColor="Black"/>
+
+        <Label Text="Smart farming is a smart app that looks at multiple aspects and suggest the best crop to grow in the situation!" 
+               FontSize="16" TextColor="Black" 
+            HorizontalTextAlignment="Center" Padding="30,40,30,0"/>
+
+        <Label FontSize="16" Padding="30,24,30,0">
+
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+
+        </Label>
+
+        <StackLayout Padding="0,80,0,0">
+
+            <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
+                    BorderColor="Black" BorderWidth="2" Text="Get started !" 
+                    WidthRequest="300" HeightRequest="80" HorizontalOptions="Center"
+                    CornerRadius="8" Clicked="Button_Clicked"/>
+
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
