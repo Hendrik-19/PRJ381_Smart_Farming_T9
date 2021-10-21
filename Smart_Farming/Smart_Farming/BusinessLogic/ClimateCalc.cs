@@ -27,7 +27,7 @@ namespace Smart_Farming.BusinessLogic
             DataTable temp = new DataTable();
             temp = handler.getData(query);
 
-            List<Climates> climateList = new List<Climates>();
+            List<Climates> climateList = new List<Climates>();//TODO:Check that list has values in, else handle error
             climateList  = convert.ConvertDataTable<Climates>(temp);
 
             //logic //TODO: Tweak Algorithm as needed
