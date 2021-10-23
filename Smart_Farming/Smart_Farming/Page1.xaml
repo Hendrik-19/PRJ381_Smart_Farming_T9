@@ -12,28 +12,28 @@
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Image Source=""  ClassId="Image"/>
+                <Image Source="" x:Name="Img"/>
 
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Crop name: " ClassId="Name" ></Label>
+                <Label x:Name="lblCName" Text="Crop name: " ></Label>
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Sow time: " ClassId="STime"></Label>
+                <Label x:Name="lblSTime" Text="Sow time: "></Label>
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Harvest time: " ClassId="HTime"></Label>
+                <Label x:Name="lblHTime" Text="Harvest time: "></Label>
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Irrigation amount needed: " ClassId="IAmmount"></Label>
+                <Label x:Name="lblIAmmount" Text="Irrigation amount needed: "></Label>
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Common pests: " ClassId="Pests"></Label>
+                <Label x:Name="lblPests" Text="Common pests: " ClassId="Pests"></Label>
             </Frame>
 
             <StackLayout Padding="0,80,0,0">
@@ -41,7 +41,7 @@
                 <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
                     BorderColor="Black" BorderWidth="2" Text="Next suggestion" 
                     WidthRequest="300" HeightRequest="80" HorizontalOptions="Center"
-                    CornerRadius="8" Clicked=""/>
+                    CornerRadius="8" Clicked="Button_Clicked_Next"/>
 
             </StackLayout>
 
@@ -50,7 +50,7 @@
                 <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
                     BorderColor="Black" BorderWidth="2" Text="Previous suggestion" 
                     WidthRequest="300" HeightRequest="80" HorizontalOptions="Center"
-                    CornerRadius="8" Clicked=""/>
+                    CornerRadius="8" Clicked="Button_Clicked_Previous"/>
 
             </StackLayout>
         </StackLayout>
