@@ -19,7 +19,7 @@ namespace Smart_Farming.BusinessLogic
         public int assignClimate(double maxTemp, double minTemp, double avePercipitation)
         {
             int LocationClimateID = 0;
-            string query = $"SELECT * FROM Climates";
+            string query = $"SELECT * FROM ClimateArea";
 
             Datahandler handler = new Datahandler();
             Convertion convert = new Convertion();
