@@ -10,7 +10,7 @@ namespace Smart_Farming.DataAccess
     public class Datahandler
     {
         #region Database
-        private string connection = @"Data Source=.; Initial Catalog = SmartFarmingDB; Integrated Security = SSPI"; // connection string goes here
+        private string connection = @"Data Source=.; Initial Catalog = SmartFarmingDB; Integrated Security = SSPI"; //Database connection string
 
         SqlConnection conn; // used establish a connection to the SQL server database
         SqlDataAdapter adapter; // used to convert the data from the database to a datatable
