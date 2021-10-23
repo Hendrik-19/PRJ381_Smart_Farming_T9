@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Essentials; 
+using Xamarin.Essentials;
 using Smart_Farming.BusinessLogic;
 
 namespace Smart_Farming
@@ -19,18 +19,25 @@ namespace Smart_Farming
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            //TODO: create component to handle multiple crops as output and possibly a second page to display output
             BusinessLogic.Location loc = new BusinessLogic.Location();
             loc.GetLocation();
 
             BusinessLogic.CropSuggestion suggestion = new CropSuggestion();
-            
+
             List<Crop> crops = new List<Crop>();
 
-            crops = suggestion.getCrops(loc); //TODO: do the output stuff
+            crops = suggestion.getCrops(loc);
 
             //To display the second page with results
+            //if (crops.Count > 0)
+            //{
             await Navigation.PushAsync(new Page1(crops));
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Alert", "The application could not suggest any crops for your location", "OK");
+            //}
+
         }
     }
 }
