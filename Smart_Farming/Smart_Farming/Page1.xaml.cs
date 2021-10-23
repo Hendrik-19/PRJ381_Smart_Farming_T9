@@ -22,6 +22,12 @@ namespace Smart_Farming
         public Page1(List<Crop> crops)
         {
             croplist = crops;
+            Img = croplist[counter].CropImage;
+            lblCName.Text = "Crop name: " + croplist[counter].CropName.ToString();
+            lblSTime.Text = "Sow time: " + croplist[counter].SowTime.ToString();
+            lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + "";//add appropriate info
+            lblIAmmount.Text = "Irrigation amount needed: " + croplist[counter].IrrigationAmount.ToString() + "";//add appropriate info
+            lblPests.Text = "Common pests: " + croplist[counter].Pests.ToString();
         }
 
         private async void Button_Clicked_Next(object sender, EventArgs e)
@@ -31,6 +37,13 @@ namespace Smart_Farming
             {
                 counter = 0;
             }
+
+            Img = croplist[counter].CropImage;
+            lblCName.Text = "Crop name: " + croplist[counter].CropName.ToString();
+            lblSTime.Text = "Sow time: " + croplist[counter].SowTime.ToString();
+            lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + "";//add appropriate info
+            lblIAmmount.Text = "Irrigation amount needed: " + croplist[counter].IrrigationAmount.ToString() + "";//add appropriate info
+            lblPests.Text = "Common pests: " + croplist[counter].Pests.ToString();
         }
 
         private async void Button_Clicked_Previous(object sender, EventArgs e)
@@ -40,6 +53,13 @@ namespace Smart_Farming
             {
                 counter = croplist.Count - 1;
             }
+
+            Img = croplist[counter].CropImage;
+            lblCName.Text = "Crop name: " + croplist[counter].CropName.ToString();
+            lblSTime.Text = "Sow time: " + croplist[counter].SowTime.ToString();
+            lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + "";//add appropriate info
+            lblIAmmount.Text = "Irrigation amount needed: " + croplist[counter].IrrigationAmount.ToString() + "";//add appropriate info
+            lblPests.Text = "Common pests: " + croplist[counter].Pests.ToString();
         }
     }
 }
