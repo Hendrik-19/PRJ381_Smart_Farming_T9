@@ -19,7 +19,7 @@ namespace Smart_Farming.BusinessLogic
             Convertion convert = new Convertion();
             //crop selection query
             string query = $"SELECT Crops.CropID, Crops.CropName, Crops.Sowtime, Crops.HarvestTime, Crops.IrrigationAmount, Crops.Pests, Crops.CropImage FROM Crops INNER JOIN ClimateArea_Crops ON ClimateArea_Crops.CropID = Crops.CropID WHERE ClimateArea_Crops.Climate_ID = {loc.ClimateID}"; 
-
+            //TODO: Add try catch block around datbase opperations
             DataTable temp = new DataTable();
             temp = handler.getData(query);
 
