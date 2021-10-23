@@ -1,4 +1,4 @@
-﻿using Smart_Farming.BusinessLogic; // to be able to use the crop class
+﻿using Smart_Farming.BusinessLogic; // to be able to use the crop class in this class
 using System;
 using System.Collections.Generic;
 using System.Linq;
