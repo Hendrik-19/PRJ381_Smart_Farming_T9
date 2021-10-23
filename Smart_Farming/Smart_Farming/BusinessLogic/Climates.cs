@@ -36,6 +36,29 @@ namespace Smart_Farming.BusinessLogic
             MaxPercipitation = maxPercipitation;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Climates climates &&
+                   ClimateId == climates.ClimateId &&
+                   ClimateName == climates.ClimateName &&
+                   AvgMaxTemp == climates.AvgMaxTemp &&
+                   AvgMinTemp == climates.AvgMinTemp &&
+                   MinPercipitation == climates.MinPercipitation &&
+                   MaxPercipitation == climates.MaxPercipitation;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 712991018;
+            hashCode = hashCode * -1521134295 + ClimateId.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ClimateName);
+            hashCode = hashCode * -1521134295 + AvgMaxTemp.GetHashCode();
+            hashCode = hashCode * -1521134295 + AvgMinTemp.GetHashCode();
+            hashCode = hashCode * -1521134295 + MinPercipitation.GetHashCode();
+            hashCode = hashCode * -1521134295 + MaxPercipitation.GetHashCode();
+            return hashCode;
+        }
+
         public override string ToString()
         {
             return base.ToString();
@@ -75,29 +98,6 @@ namespace Smart_Farming.BusinessLogic
 
             //Return averages
             return averages;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Climates climates &&
-                   ClimateId == climates.ClimateId &&
-                   ClimateName == climates.ClimateName &&
-                   AvgMaxTemp == climates.AvgMaxTemp &&
-                   AvgMinTemp == climates.AvgMinTemp &&
-                   MinPercipitation == climates.MinPercipitation &&
-                   MaxPercipitation == climates.MaxPercipitation;
-        }
-
-        public override int GetHashCode()
-        {
-            int hashCode = 712991018;
-            hashCode = hashCode * -1521134295 + ClimateId.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ClimateName);
-            hashCode = hashCode * -1521134295 + AvgMaxTemp.GetHashCode();
-            hashCode = hashCode * -1521134295 + AvgMinTemp.GetHashCode();
-            hashCode = hashCode * -1521134295 + MinPercipitation.GetHashCode();
-            hashCode = hashCode * -1521134295 + MaxPercipitation.GetHashCode();
-            return hashCode;
         }
         #endregion
     }
