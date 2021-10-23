@@ -27,7 +27,7 @@ namespace Smart_Farming.DataAccess
             }
             catch (Exception e)
             {
-                App.Current.MainPage.DisplayAlert("Alert", "Could not find results...", "OK"); // Error message that will display on the main form, Not sure what the App.Current.MainPage part does.
+                App.Current.MainPage.DisplayAlert("Alert", "Could not find results... :"+e.Message, "OK"); // Error message that will display on the main form, Not sure what the App.Current.MainPage part does.
             }
             finally
             {
