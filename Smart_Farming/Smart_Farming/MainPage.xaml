@@ -13,7 +13,7 @@
 
 
         <Label 
-            Text="Get Started With smart farming now !" 
+            Text="Get started with Smart Farming now !" 
                HorizontalTextAlignment="Center" FontSize="Title" 
             Padding="30,60,30,10" TextColor="Black"/>
 
