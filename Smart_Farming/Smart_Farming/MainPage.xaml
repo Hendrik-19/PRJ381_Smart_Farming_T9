@@ -17,7 +17,7 @@
                HorizontalTextAlignment="Center" FontSize="Title" 
             Padding="30,60,30,10" TextColor="Black"/>
 
-        <Label Text="Smart farming is a smart app that looks at multiple aspects and suggest the best crop to grow in the situation!" 
+        <Label Text="Smart farming is an application that looks at climate data of the user location and suggest a list of crops that will grow the best at the user location!" 
                FontSize="16" TextColor="Black" 
             HorizontalTextAlignment="Center" Padding="30,40,30,0"/>
 
