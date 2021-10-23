@@ -17,8 +17,8 @@ namespace Smart_Farming.BusinessLogic
         {
             Datahandler handler = new Datahandler();
             Convertion convert = new Convertion();
-            //example query, could change if database gets changed. Could be incorrect, I'm no DBA
-            string query = $"SELECT * FROM Crops JOIN Climate ON Climate.Climate_ID = Crops.Climate_ID WHERE Crops.Climate_ID = {loc.ClimateID}"; // TODO: fix query if needed
+            //crop selection query
+            string query = $"SELECT Crops.CropID, Crops.CropName, Crops.Sowtime, Crops.HarvestTime, Crops.IrrigationAmount, Crops.Pests, Crops.CropImage FROM Crops INNER JOIN ClimateArea_Crops ON ClimateArea_Crops.CropID = Crops.CropID WHERE ClimateArea_Crops.Climate_ID = {loc.ClimateID}"; 
 
             DataTable temp = new DataTable();
             temp = handler.getData(query);
