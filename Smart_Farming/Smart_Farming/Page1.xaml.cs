@@ -17,9 +17,29 @@ namespace Smart_Farming
             InitializeComponent();
         }
 
+        List<Crop> croplist = new List<Crop>();
+        int counter = 0;
         public Page1(List<Crop> crops)
         {
-            
+            croplist = crops;
+        }
+
+        private async void Button_Clicked_Next(object sender, EventArgs e)
+        {
+            counter++;
+            if (counter > croplist.Count)
+            {
+                counter = 0;
+            }
+        }
+
+        private async void Button_Clicked_Previous(object sender, EventArgs e)
+        {
+            counter--;
+            if (counter < 0)
+            {
+                counter = croplist.Count - 1;
+            }
         }
     }
 }
