@@ -27,7 +27,7 @@ namespace Smart_Farming.BusinessLogic
             DataTable temp = new DataTable();
             temp = handler.getData(query);
 
-            List<Climates> climateList = new List<Climates>();//TODO:Check that list has values in, else handle error
+            List<Climates> climateList = new List<Climates>();
             climateList  = convert.ConvertDataTable<Climates>(temp);
 
             //logic //TODO: Tweak Algorithm as needed
@@ -39,22 +39,28 @@ namespace Smart_Farming.BusinessLogic
              * 4: Else continue looping
              */
 
-            foreach (var climate in climateList)//TODO:Look at ways to handle edge cases as needed
+            try
             {
-                //Climate assignment criteria:
-                // (climate.min <= min <= climate.min) AND ( climate.max <= max <= climate.max) AND (climate.minPercipitation <= percipitation <= climate.maxPercipitation)
-                
-                if ((climate.AvgMinTemp <= minTemp) && (maxTemp <= climate.AvgMaxTemp) && (climate.MinPercipitation <= avePercipitation) && (avePercipitation <= climate.MaxPercipitation)) 
+                foreach (var climate in climateList)//TODO:Look at ways to handle edge cases as needed
                 {
-                    LocationClimateID = climate.ClimateId;//Climate assigned
+                    //Climate assignment criteria:
+                    // (climate.min <= min <= climate.min) AND ( climate.max <= max <= climate.max) AND (climate.minPercipitation <= percipitation <= climate.maxPercipitation)
+
+                    if ((climate.AvgMinTemp <= minTemp) && (maxTemp <= climate.AvgMaxTemp) && (climate.MinPercipitation <= avePercipitation) && (avePercipitation <= climate.MaxPercipitation))
+                    {
+                        LocationClimateID = climate.ClimateId;//Climate assigned
+                    }
+                }
+
+                if (LocationClimateID == 0)//no climate was assigned
+                {
+                    App.Current.MainPage.DisplayAlert("Alert", "Could not assign climate to your location", "OK");
                 }
             }
-
-            if (LocationClimateID == 0)//no climate was assigned
+            catch (Exception e)
             {
-                App.Current.MainPage.DisplayAlert("Alert","Could not assign climate to your location","OK");
+                App.Current.MainPage.DisplayAlert("Alert", "Could not connect to the database :" + e.Message, "OK");
             }
-
             return LocationClimateID;
         }
         #endregion
