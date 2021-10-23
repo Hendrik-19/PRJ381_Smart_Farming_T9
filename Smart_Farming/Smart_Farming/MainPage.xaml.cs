@@ -30,7 +30,7 @@ namespace Smart_Farming
             crops = suggestion.getCrops(loc); //TODO: do the output stuff
 
             //To display the second page with results
-            await Navigation.PushAsync(new Page1());//add a parameter for second page that takes the crops list
+            await Navigation.PushAsync(new Page1(crops));
         }
     }
 }

@@ -12,20 +12,47 @@
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Results 1 "></Label>
+                <Image Source=""  ClassId="Image"/>
 
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Results 2 "></Label>
-
+                <Label Text="Crop name: " ClassId="Name" ></Label>
             </Frame>
 
             <Frame Padding="30,0,20,2">
-                <Label Text="Results 3 "></Label>
-
+                <Label Text="Sow time: " ClassId="STime"></Label>
             </Frame>
 
+            <Frame Padding="30,0,20,2">
+                <Label Text="Harvest time: " ClassId="HTime"></Label>
+            </Frame>
+
+            <Frame Padding="30,0,20,2">
+                <Label Text="Irrigation amount needed: " ClassId="IAmmount"></Label>
+            </Frame>
+
+            <Frame Padding="30,0,20,2">
+                <Label Text="Common pests: " ClassId="Pests"></Label>
+            </Frame>
+
+            <StackLayout Padding="0,80,0,0">
+
+                <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
+                    BorderColor="Black" BorderWidth="2" Text="Next suggestion" 
+                    WidthRequest="300" HeightRequest="80" HorizontalOptions="Center"
+                    CornerRadius="8" Clicked=""/>
+
+            </StackLayout>
+
+            <StackLayout Padding="0,80,0,0">
+
+                <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
+                    BorderColor="Black" BorderWidth="2" Text="Previous suggestion" 
+                    WidthRequest="300" HeightRequest="80" HorizontalOptions="Center"
+                    CornerRadius="8" Clicked=""/>
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
