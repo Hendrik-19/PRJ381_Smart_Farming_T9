@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
+using System.IO;
+using Xamarin.Forms; // used for the Image Datatype
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -8,47 +11,57 @@ namespace Smart_Farming.BusinessLogic
     {
         #region Crop
         // private fields
-        private string name, location, description, addInfo;//TODO:Add attributes from database
+        int cropID;
+        string cropName, sowTime;
+        double harvestTime, irrigationAmount;
+        string pests;
+        Image cropImage;
 
-        // public properties
-        public string Name { get => name; set => name = value; }
-        public string Location { get => location; set => location = value; }
-        public string Description { get => description; set => description = value; }
-        public string AddInfo { get => addInfo; set => addInfo = value; }
+        // public properties 
+        public int CropID { get => cropID; set => cropID = value; }
+        public string CropName { get => cropName; set => cropName = value; }
+        public string SowTime { get => sowTime; set => sowTime = value; }
+        public double HarvestTime { get => harvestTime; set => harvestTime = value; }
+        public double IrrigationAmount { get => irrigationAmount; set => irrigationAmount = value; }
+        public string Pests { get => pests; set => pests = value; }
+        public Image CropImage { get => cropImage; set => cropImage = value; }
 
         // public constructor
-        public Crop(string name, string location, string description, string addInfo)
+        public Crop(int cropID, string cropName, string sowTime, double harvestTime, double irrigationAmount, string pests, Image cropImage)
         {
-            this.name = name;
-            this.location = location;
-            this.description = description;
-            this.addInfo = addInfo;
-        }
-
-        // Empty constructor for instance creation
-        public Crop()
-        {
-
+            this.cropID = cropID;
+            this.cropName = cropName;
+            this.sowTime = sowTime;
+            this.harvestTime = harvestTime;
+            this.irrigationAmount = irrigationAmount;
+            this.pests = pests;
+            this.cropImage = cropImage;
         }
 
         // Equals override
         public override bool Equals(object obj)
         {
             return obj is Crop crop &&
-                   name == crop.name &&
-                   location == crop.location &&
-                   description == crop.description &&
-                   addInfo == crop.addInfo;
+                   cropID == crop.cropID &&
+                   cropName == crop.cropName &&
+                   sowTime == crop.sowTime &&
+                   harvestTime == crop.harvestTime &&
+                   irrigationAmount == crop.irrigationAmount &&
+                   pests == crop.pests &&
+                   EqualityComparer<Image>.Default.Equals(cropImage, crop.cropImage);
         }
 
         // HashCode override
         public override int GetHashCode()
         {
-            int hashCode = -130549067;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(location);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(description);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(addInfo);
+            int hashCode = 1318564473;
+            hashCode = hashCode * -1521134295 + cropID.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(cropName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(sowTime);
+            hashCode = hashCode * -1521134295 + harvestTime.GetHashCode();
+            hashCode = hashCode * -1521134295 + irrigationAmount.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(pests);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Image>.Default.GetHashCode(cropImage);
             return hashCode;
         }
 
