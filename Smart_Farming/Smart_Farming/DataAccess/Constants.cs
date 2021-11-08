@@ -7,7 +7,7 @@ namespace Smart_Farming.DataAccess
 {
     public static class Constants
     {
-        #region Database
+        #region DatabaseCreationAccess
         public const string DatabaseFilename = "SmartFarmingDB.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =

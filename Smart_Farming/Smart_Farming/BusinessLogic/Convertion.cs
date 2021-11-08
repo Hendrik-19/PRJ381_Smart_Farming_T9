@@ -6,7 +6,7 @@ using System.Data;
 
 namespace Smart_Farming.BusinessLogic
 {
-    public class Convertion
+    [Obsolete] public class Convertion
     {
         // this class is used to convert a datatable to a list
         #region Convertion
