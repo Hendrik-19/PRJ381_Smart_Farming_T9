@@ -7,6 +7,7 @@ namespace Smart_Farming.DataAccess
 {
     public static class Constants
     {
+        #region Database
         public const string DatabaseFilename = "SmartFarmingDB.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
@@ -25,5 +26,6 @@ namespace Smart_Farming.DataAccess
                 return Path.Combine(basePath, DatabaseFilename);
             }
         }
+        #endregion
     }
 }
