@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Smart_Farming.DataAccess;
-using System.Data; // this is to use a datatable
+using System.Data; // [Obsolete]this is to use a datatable
 
 namespace Smart_Farming.BusinessLogic
 {
