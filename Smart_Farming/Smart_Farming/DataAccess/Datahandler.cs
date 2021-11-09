@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-using System.Data.SqlClient; // <--added a NuGet Package for this
+using System.Data.SqlClient; // <--[Obsolete]added a NuGet Package for this
 using Xamarin.Forms;
-using SQLite;
+using SQLite; // <-- this is the current database solution NuGet package
 using System.Threading.Tasks;
 
 namespace Smart_Farming.DataAccess
