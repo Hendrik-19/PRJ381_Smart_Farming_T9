@@ -69,7 +69,7 @@ namespace Smart_Farming.DataAccess
         }
         public Task<ClimateAreaCropsTable> GetItemAsyncLinking(int id)
         {
-            return Database.Table<ClimateAreaCropsTable>().Where(i => i.LinkID == id).FirstOrDefaultAsync();
+            return Database.Table<ClimateAreaCropsTable>().Where(i => i.ClimateID == id).FirstOrDefaultAsync();
         }
         #endregion
     }
