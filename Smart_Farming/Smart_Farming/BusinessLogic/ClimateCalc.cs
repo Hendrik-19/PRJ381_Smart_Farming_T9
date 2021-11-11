@@ -31,9 +31,6 @@ namespace Smart_Farming.BusinessLogic
             //List<Climates> climateList = new List<Climates>();
             //climateList  = convert.ConvertDataTable<Climates>(temp);
 
-            SmartFarmingBD farmingBD = new SmartFarmingBD();
-
-            List<ClimateAreaTable> climateTableList = new List<ClimateAreaTable>();
             //climateTableList.Add(new ClimateAreaTable { });
 
             //climateTableList = (List<ClimateAreaTable>)farmingBD.GetClimateAsync();
