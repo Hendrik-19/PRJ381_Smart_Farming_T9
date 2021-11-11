@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Smart_Farming.DataAccess;
 using System.Data; //needed to create a datatable
+using System.Threading.Tasks;
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -17,18 +18,28 @@ namespace Smart_Farming.BusinessLogic
 
         #region Functionality
         public int assignClimate(double maxTemp, double minTemp, double avePercipitation)
-        {
+        {//ToDo: fangdangle with dummy data
             int LocationClimateID = 0;
-            string query = $"SELECT * FROM ClimateArea";
+            string query = $"SELECT * FROM ClimateArea";//dont really need
 
-            Datahandler handler = new Datahandler();
-            Convertion convert = new Convertion();
+            //Datahandler handler = new Datahandler();
+            //Convertion convert = new Convertion();
 
-            DataTable temp = new DataTable();
-            temp = handler.getData(query);
+            //DataTable temp = new DataTable();
+            //temp = handler.getData(query);
+
+            //List<Climates> climateList = new List<Climates>();
+            //climateList  = convert.ConvertDataTable<Climates>(temp);
+
+            SmartFarmingBD farmingBD = new SmartFarmingBD();
+
+            List<ClimateAreaTable> climateTableList = new List<ClimateAreaTable>();
+            //climateTableList.Add(new ClimateAreaTable { });
+
+            //climateTableList = (List<ClimateAreaTable>)farmingBD.GetClimateAsync();
 
             List<Climates> climateList = new List<Climates>();
-            climateList  = convert.ConvertDataTable<Climates>(temp);
+
 
             //logic //TODO: Tweak Algorithm as needed
 

@@ -16,6 +16,7 @@ namespace Smart_Farming.BusinessLogic
         double harvestTime, irrigationAmount;
         string pests;
         Image cropImage;
+        int climateID;
 
         // public properties 
         public int CropID { get => cropID; set => cropID = value; }
@@ -25,9 +26,10 @@ namespace Smart_Farming.BusinessLogic
         public double IrrigationAmount { get => irrigationAmount; set => irrigationAmount = value; }
         public string Pests { get => pests; set => pests = value; }
         public Image CropImage { get => cropImage; set => cropImage = value; }
+        public int ClimateID { get => climateID; set => climateID = value; }
 
         // public constructor
-        public Crop(int cropID, string cropName, string sowTime, double harvestTime, double irrigationAmount, string pests, Image cropImage)
+        public Crop(int cropID, string cropName, string sowTime, double harvestTime, double irrigationAmount, string pests, Image cropImage, int climateID)
         {
             this.cropID = cropID;
             this.cropName = cropName;
@@ -36,6 +38,7 @@ namespace Smart_Farming.BusinessLogic
             this.irrigationAmount = irrigationAmount;
             this.pests = pests;
             this.cropImage = cropImage;
+            this.climateID = climateID;
         }
 
         // Equals override
