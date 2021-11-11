@@ -45,13 +45,14 @@ namespace Smart_Farming.BusinessLogic
         public override bool Equals(object obj)
         {
             return obj is Crop crop &&
-                   cropID == crop.cropID &&
-                   cropName == crop.cropName &&
-                   sowTime == crop.sowTime &&
-                   harvestTime == crop.harvestTime &&
-                   irrigationAmount == crop.irrigationAmount &&
-                   pests == crop.pests &&
-                   EqualityComparer<Image>.Default.Equals(cropImage, crop.cropImage);
+                   CropID == crop.CropID &&
+                   CropName == crop.CropName &&
+                   SowTime == crop.SowTime &&
+                   HarvestTime == crop.HarvestTime &&
+                   IrrigationAmount == crop.IrrigationAmount &&
+                   Pests == crop.Pests &&
+                   EqualityComparer<Image>.Default.Equals(CropImage, crop.CropImage) &&
+                   ClimateID == crop.ClimateID;
         }
 
         // HashCode override
@@ -65,6 +66,7 @@ namespace Smart_Farming.BusinessLogic
             hashCode = hashCode * -1521134295 + irrigationAmount.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(pests);
             hashCode = hashCode * -1521134295 + EqualityComparer<Image>.Default.GetHashCode(cropImage);
+            hashCode = hashCode * -1521134295 + climateID.GetHashCode();
             return hashCode;
         }
 
@@ -73,6 +75,8 @@ namespace Smart_Farming.BusinessLogic
         {
             return base.ToString();
         }
+
+        
         #endregion
     }
 }

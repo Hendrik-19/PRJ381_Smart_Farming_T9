@@ -18,7 +18,7 @@ namespace Smart_Farming.BusinessLogic
 
         #region Functionality
         public int assignClimate(double maxTemp, double minTemp, double avePercipitation)
-        {//ToDo: fangdangle with dummy data
+        {//ToDo: fangdangle with data from datahandler_2
             int LocationClimateID = 0;
             string query = $"SELECT * FROM ClimateArea";//dont really need
 
@@ -41,8 +41,8 @@ namespace Smart_Farming.BusinessLogic
             List<Climates> climateList = new List<Climates>();
 
 
-            //logic //TODO: Tweak Algorithm as needed
-
+            //logic 
+            //TODO: Tweak Algorithm as needed
             /*
              * 1: Loop climate list
              * 2: Compare current location vals to indexed climate vals
