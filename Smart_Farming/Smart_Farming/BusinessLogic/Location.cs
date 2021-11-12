@@ -77,7 +77,7 @@ namespace Smart_Farming.BusinessLogic
         {
             List<double> ave = new List<double>();
 
-            try
+            try //ToDo: Fix this try block, it breaks in here
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
                 if (location == null) // this checks of a location saved in the cache, if it is empty then it will request a location
@@ -113,7 +113,7 @@ namespace Smart_Farming.BusinessLogic
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK"); // This is an error message that will display when the app is having dificulties picking up location services
+                await App.Current.MainPage.DisplayAlert("Alert", "An error has occured : \n" + ex.Message, "OK"); // This is an error message that will display when the app is having dificulties picking up location services
             }
         }
         #endregion
