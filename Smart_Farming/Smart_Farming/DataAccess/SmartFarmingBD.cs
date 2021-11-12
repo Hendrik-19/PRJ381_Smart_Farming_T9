@@ -24,12 +24,6 @@ namespace Smart_Farming.DataAccess
         {
         }
 
-        public Task<List<CropTable>> GetCropsAsync()
-        {
-            //Get all crops.
-            return database.Table<CropTable>().ToListAsync();
-        }
-
         public async Task<List<ClimateAreaTable>> GetClimateAsync()
         {
             //Get all climates.
@@ -38,11 +32,6 @@ namespace Smart_Farming.DataAccess
             return data.ToList();
         }
 
-        public Task<List<ClimateAreaCropsTable>> GetClimateCropsAsync()
-        {
-            //Get all climate crops.
-            return database.Table<ClimateAreaCropsTable>().ToListAsync();
-        }
         public Task<List<CropTable>> GetCropItemsNotDoneAsync(string Query)
         {
             return database.QueryAsync<CropTable>(Query);
