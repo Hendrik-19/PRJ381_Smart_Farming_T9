@@ -29,15 +29,15 @@ namespace Smart_Farming
             crops = suggestion.getCrops(loc);
 
             //To display the second page with results
-            //if (crops.Count > 0)
-            //{
-            await Navigation.PushAsync(new Page1(crops));
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Alert", "The application could not suggest any crops for your location", "OK");
-            //}
+            if (crops.Count > 0)
+            {
+                await Navigation.PushAsync(new Page1(crops));
+            }
+            else
+            {
+                await DisplayAlert("Alert", "The application could not suggest any crops for your location", "OK");
+            }
 
-        }
+}
     }
 }
