@@ -18,7 +18,7 @@ namespace Smart_Farming.BusinessLogic
 
         #region Functionality
         public int assignClimate(double maxTemp, double minTemp, double avePercipitation)
-        {//ToDo: fangdangle with data from datahandler_2
+        {
             int LocationClimateID = 0;
 
             Datahandler_2 datahandler = new Datahandler_2();
