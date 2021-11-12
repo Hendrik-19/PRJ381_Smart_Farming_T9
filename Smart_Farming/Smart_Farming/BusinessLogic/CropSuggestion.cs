@@ -15,18 +15,22 @@ namespace Smart_Farming.BusinessLogic
         #region Functionality
         public List<Crop> getCrops(Location loc)
         {
-            //Datahandler handler = new Datahandler();
+            Datahandler_2 handler = new Datahandler_2();
             
-            //crop selection query not needed
-            string query = $"SELECT Crops.CropID, Crops.CropName, Crops.Sowtime, Crops.HarvestTime, Crops.IrrigationAmount, Crops.Pests, Crops.CropImage FROM Crops INNER JOIN ClimateArea_Crops ON ClimateArea_Crops.CropID = Crops.CropID WHERE ClimateArea_Crops.Climate_ID = {loc.ClimateID}"; 
-            //TODO: Use datahandler_2.getcroplist to get croplist and check the climate_id property of the crops to see if it matches location assigned climate and return it
-            DataTable temp = new DataTable();
-            //temp = handler.getData(query);
-
             List<Crop> crops = new List<Crop>();
-            //crops = convert.ConvertDataTable<Crop>(temp);
+            crops = handler.getCropList();
 
-            return crops;
+            List<Crop> locationCrops = new List<Crop>();
+
+            foreach (var crop in crops)
+            {
+                if (crop.ClimateID == loc.ClimateID)
+                {
+                    locationCrops.Add(crop);
+                }
+            }
+
+            return locationCrops;
         }
         #endregion
     }
