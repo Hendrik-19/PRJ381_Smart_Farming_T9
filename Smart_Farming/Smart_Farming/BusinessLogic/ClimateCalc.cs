@@ -16,20 +16,24 @@ namespace Smart_Farming.BusinessLogic
          */
 
         #region Functionality
+        List<Climates> climateList = new List<Climates>();
+
+        public async void GetClimateData()
+        {
+            SmartFarmingBD db = new SmartFarmingBD();
+
+            var data = await db.GetClimateAsync(); 
+
+            foreach (ClimateAreaTable item in data)
+            {
+                climateList.Add(new Climates(item.ClimateID, item.ClimateName, item.avgMaxTemp, item.AvgMinTemp, item.MinPercip, item.MaxPercip));
+            } 
+        }
+
         public int assignClimate(double maxTemp, double minTemp, double avePercipitation)
         {
             int LocationClimateID = 0;
-            string query = $"SELECT * FROM ClimateArea";
-
-            Datahandler handler = new Datahandler();
-            Convertion convert = new Convertion();
-
-            DataTable temp = new DataTable();
-            temp = handler.getData(query);
-
-            List<Climates> climateList = new List<Climates>();
-            climateList  = convert.ConvertDataTable<Climates>(temp);
-
+            GetClimateData();
             //logic //TODO: Tweak Algorithm as needed
 
             /*

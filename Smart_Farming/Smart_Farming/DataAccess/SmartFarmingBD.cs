@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 using System.Threading.Tasks;
+using Smart_Farming.BusinessLogic;
+using System.Linq;
 
 namespace Smart_Farming.DataAccess
 {
@@ -18,22 +20,32 @@ namespace Smart_Farming.DataAccess
             database.CreateTableAsync<ClimateAreaCropsTable>().Wait();
         }
 
+        public SmartFarmingBD()
+        {
+        }
+
         public Task<List<CropTable>> GetCropsAsync()
         {
             //Get all crops.
             return database.Table<CropTable>().ToListAsync();
         }
 
-        public Task<List<ClimateAreaTable>> GetClimateAsync()
+        public async Task<List<ClimateAreaTable>> GetClimateAsync()
         {
             //Get all climates.
-            return database.Table<ClimateAreaTable>().ToListAsync();
+            var data = await database.Table<ClimateAreaTable>().ToListAsync();
+
+            return data.ToList();
         }
 
         public Task<List<ClimateAreaCropsTable>> GetClimateCropsAsync()
         {
             //Get all climate crops.
             return database.Table<ClimateAreaCropsTable>().ToListAsync();
+        }
+        public Task<List<CropTable>> GetCropItemsNotDoneAsync(string Query)
+        {
+            return database.QueryAsync<CropTable>(Query);
         }
     }
 }

@@ -38,6 +38,17 @@ namespace Smart_Farming.BusinessLogic
             this.cropImage = cropImage;
         }
 
+        // Constructopr for no image
+        public Crop(int cropID, string cropName, string sowTime, double harvestTime, double irrigationAmount, string pests)
+        {
+            this.cropID = cropID;
+            this.cropName = cropName;
+            this.sowTime = sowTime;
+            this.harvestTime = harvestTime;
+            this.irrigationAmount = irrigationAmount;
+            this.pests = pests;
+        }
+
         // Equals override
         public override bool Equals(object obj)
         {

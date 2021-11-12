@@ -12,6 +12,9 @@ namespace Smart_Farming.DataAccess
         [PrimaryKey, AutoIncrement]
         public int CropID { get; set; }
 
+        //TODO: Figure out how to add a foreign key
+        public int ClimateID { get; set; }
+
         [MaxLength(50)]
         public string CropName { get; set; }
 
