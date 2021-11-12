@@ -20,23 +20,12 @@ namespace Smart_Farming.BusinessLogic
         public int assignClimate(double maxTemp, double minTemp, double avePercipitation)
         {//ToDo: fangdangle with data from datahandler_2
             int LocationClimateID = 0;
-            string query = $"SELECT * FROM ClimateArea";//dont really need
 
-            //Datahandler handler = new Datahandler();
-            //Convertion convert = new Convertion();
-
-            //DataTable temp = new DataTable();
-            //temp = handler.getData(query);
-
-            //List<Climates> climateList = new List<Climates>();
-            //climateList  = convert.ConvertDataTable<Climates>(temp);
-
-            //climateTableList.Add(new ClimateAreaTable { });
-
-            //climateTableList = (List<ClimateAreaTable>)farmingBD.GetClimateAsync();
+            Datahandler_2 datahandler = new Datahandler_2();
 
             List<Climates> climateList = new List<Climates>();
 
+            climateList = datahandler.getClimateList();
 
             //logic 
             //TODO: Tweak Algorithm as needed
