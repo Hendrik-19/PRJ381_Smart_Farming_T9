@@ -77,7 +77,7 @@ namespace Smart_Farming.BusinessLogic
         {
             List<double> ave = new List<double>();
 
-            try
+            try //Todo: App breaks in this try block , we need to fix it
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
                 if (location == null) // this checks of a location saved in the cache, if it is empty then it will request a location
