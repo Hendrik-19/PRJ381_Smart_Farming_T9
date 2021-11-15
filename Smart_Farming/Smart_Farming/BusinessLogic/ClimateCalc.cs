@@ -38,8 +38,6 @@ namespace Smart_Farming.BusinessLogic
 
             try
             {
-                App.Current.MainPage.DisplayAlert("Alert", $"ClimateID : {climateList[5].ClimateId}, Climate max temp : {climateList[5].AvgMaxTemp}, Climate min temp : {climateList[5].AvgMinTemp}", "OK");
-
                 foreach (Climates climate in climateList)//TODO:Look at ways to handle edge cases as needed
                 {
                     //Climate assignment criteria:
