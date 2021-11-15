@@ -12,11 +12,19 @@ namespace Smart_Farming.DataAccess
         {
             List<Climates> climates = new List<Climates>();
 
-            climates.Add(new Climates(1,"ColdTemperate",-2,29,15,30));
-            climates.Add(new Climates(2,"HotTemperate", 10, 80, 65, 70));
-            climates.Add(new Climates(3,"SummerRainSubTropical", 7, 78, 60, 80));
-            climates.Add(new Climates(4,"WinterRainSubtropical", 5, 68, 50, 65));
-            climates.Add(new Climates(5, "AridDesert", 20, 90, 2, -3));
+            climates.Add(new Climates(1, "Alpine", 13.4, 1, 23.8, 48));
+            climates.Add(new Climates(2, "HotDesert", 38.2, 9.3, 0, 5.8));
+            climates.Add(new Climates(3, "ColdDesert", 22.3, -10, 5, 12.5));
+            climates.Add(new Climates(4, "HumidContinental", 25.2, -3.6, 67.3, 88.5));
+            climates.Add(new Climates(5, "HumidSubTropical", 27.3, 12.8, 53, 116.8));
+            climates.Add(new Climates(6, "OceanicHighland",  24.6, 8.9, 5.1, 191.6));
+            climates.Add(new Climates(7, "OceanicMarine", 18.4, 4.6, 60.9, 106.8));
+            climates.Add(new Climates(8, "OceanicSubPolar", 11.6, 1.7, 76.8, 144.4));
+            climates.Add(new Climates(9, "SemiArid", 35.1, 7.6, 0, 138));
+            climates.Add(new Climates(10, "Temperate", 18, -3, 4.2, 109.6));
+            climates.Add(new Climates(11, "TropicalMonsoon", 33.2, 19.7, 0, 736.5));
+            climates.Add(new Climates(12, "TropicalRainforest", 31, 23, 565.8, 789.4));
+            climates.Add(new Climates(13, "TropicalSavana", 33.4, 17.1, 0, 205.5));
 
             return climates;
         }
