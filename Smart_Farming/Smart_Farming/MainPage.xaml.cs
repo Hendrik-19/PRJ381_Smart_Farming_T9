@@ -26,7 +26,12 @@ namespace Smart_Farming
 
             List<Crop> crops = new List<Crop>();
 
-            crops = suggestion.getCrops(loc);
+            var tempCrops = await suggestion.getCrops(loc);
+
+            foreach (Crop item in crops)
+            {
+                crops.Add(item);
+            }
 
             //To display the second page with results
             if (crops.Count > 0)

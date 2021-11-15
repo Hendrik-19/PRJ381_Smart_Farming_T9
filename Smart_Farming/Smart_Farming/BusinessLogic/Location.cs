@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials; // api that allows location services
 using Xamarin.Forms; // allows for xamarin form methods like a popup message
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -80,6 +82,7 @@ namespace Smart_Farming.BusinessLogic
             try //ToDo: Fix this try block, it breaks in here
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
+                 
                 if (location == null) // this checks of a location saved in the cache, if it is empty then it will request a location
                 {
                     location = await Geolocation.GetLocationAsync(new GeolocationRequest
@@ -88,7 +91,7 @@ namespace Smart_Farming.BusinessLogic
                         Timeout = TimeSpan.FromSeconds(30) // if the app takes more than 30 seconds to get a location it will go to the catch 
                     });
                 }
-
+                 
                 if (location == null)
                 {
                     await App.Current.MainPage.DisplayAlert("Alert","Could not detect user location","OK"); //Output an error if location can't be found
@@ -100,8 +103,16 @@ namespace Smart_Farming.BusinessLogic
 
                     //assigns max temp, min temp and average percipitiation to location from API
                     Climates climate = new Climates();
-                    ave = climate.getWeatherStats(this.Latidue, this.Longitude);
 
+                    var temp = await climate.getWebResponse(this.Latidue, this.Longitude);
+
+                    foreach (Double item in temp)
+                    {
+                        ave.Add(item);
+                    }
+
+                    await App.Current.MainPage.DisplayAlert("Alert", $"{ave[0]}, {ave[1]}, {ave[2]}", "OK");
+                    await App.Current.MainPage.DisplayAlert("Alert", "4", "OK");//Breaks from here
                     this.avgMaxTemp = ave[0];
                     this.avgMinTemp = ave[1];
                     this.avgPercipitation = ave[2];
@@ -109,6 +120,7 @@ namespace Smart_Farming.BusinessLogic
                     //assign climate to location
                     ClimateCalc cc = new ClimateCalc();
                     this.ClimateID = cc.assignClimate(this.avgMaxTemp, this.avgMinTemp, this.avgPercipitation);
+                    await App.Current.MainPage.DisplayAlert("Alert", "5", "OK");
                 }
             }
             catch (Exception ex)

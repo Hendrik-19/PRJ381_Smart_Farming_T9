@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Smart_Farming.DataAccess;
 using System.Data; // this is to use a datatable
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -13,7 +15,7 @@ namespace Smart_Farming.BusinessLogic
          * 2: Return the crop list to be displayed to user
          */
         #region Functionality
-        public List<Crop> getCrops(Location loc)
+        public async Task<List<Crop>> getCrops(Location loc)
         {
             Datahandler_2 handler = new Datahandler_2();
             
@@ -30,7 +32,9 @@ namespace Smart_Farming.BusinessLogic
                 }
             }
 
-            return locationCrops;
+            var temp = locationCrops; 
+
+            return temp.ToList();
         }
         #endregion
     }
