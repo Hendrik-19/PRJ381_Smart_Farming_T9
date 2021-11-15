@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace Smart_Farming.DataAccess
 {
@@ -12,7 +13,7 @@ namespace Smart_Farming.DataAccess
         [PrimaryKey, AutoIncrement]
         public int CropID { get; set; }
 
-        //TODO: Figure out how to add a foreign key
+        [ForeignKey(typeof(ClimateAreaTable))]
         public int ClimateID { get; set; }
 
         [MaxLength(50)]

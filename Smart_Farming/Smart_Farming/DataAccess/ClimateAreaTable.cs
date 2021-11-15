@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace Smart_Farming.DataAccess
 {
     [Table("ClimateArea")] // this is the schema for the ClimateArea table in our sqlite database
     public class ClimateAreaTable
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, OneToMany]
         public int ClimateID { get; set; }
 
         [MaxLength(50)]
