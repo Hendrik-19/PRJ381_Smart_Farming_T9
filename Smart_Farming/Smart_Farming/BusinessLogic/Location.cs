@@ -79,7 +79,7 @@ namespace Smart_Farming.BusinessLogic
         {
             List<double> ave = new List<double>();
 
-            try //ToDo: Fix this try block, it breaks in here
+            try 
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
                  
@@ -111,8 +111,6 @@ namespace Smart_Farming.BusinessLogic
                         ave.Add(item);
                     }
 
-                    await App.Current.MainPage.DisplayAlert("Alert", $"{ave[0]}, {ave[1]}, {ave[2]}", "OK");
-                    await App.Current.MainPage.DisplayAlert("Alert", "4", "OK");//Breaks from here
                     this.avgMaxTemp = ave[0];
                     this.avgMinTemp = ave[1];
                     this.avgPercipitation = ave[2];
@@ -120,7 +118,6 @@ namespace Smart_Farming.BusinessLogic
                     //assign climate to location
                     ClimateCalc cc = new ClimateCalc();
                     this.ClimateID = cc.assignClimate(this.avgMaxTemp, this.avgMinTemp, this.avgPercipitation);
-                    await App.Current.MainPage.DisplayAlert("Alert", "5", "OK");
                 }
             }
             catch (Exception ex)
