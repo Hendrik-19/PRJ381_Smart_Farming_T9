@@ -38,10 +38,14 @@ namespace Smart_Farming.BusinessLogic
 
             try
             {
-                foreach (var climate in climateList)//TODO:Look at ways to handle edge cases as needed
+                App.Current.MainPage.DisplayAlert("Alert", $"ClimateID : {climateList[5].ClimateId}, Climate max temp : {climateList[5].AvgMaxTemp}, Climate min temp : {climateList[5].AvgMinTemp}", "OK");
+
+                foreach (Climates climate in climateList)//TODO:Look at ways to handle edge cases as needed
                 {
                     //Climate assignment criteria:
                     // (climate.min <= min <= climate.min) AND ( climate.max <= max <= climate.max) AND (climate.minPercipitation <= percipitation <= climate.maxPercipitation)
+
+                    //App.Current.MainPage.DisplayAlert("Alert", $"ClimateID : {climate.ClimateId}, Climate max temp : {climate.AvgMaxTemp}, Climate min temp : {climate.AvgMinTemp}", "OK");
 
                     if ((climate.AvgMinTemp <= minTemp) && (maxTemp <= climate.AvgMaxTemp) && (climate.MinPercipitation <= avePercipitation) && (avePercipitation <= climate.MaxPercipitation))
                     {
@@ -51,7 +55,7 @@ namespace Smart_Farming.BusinessLogic
 
                 if (LocationClimateID == 0)//no climate was assigned
                 {
-                    App.Current.MainPage.DisplayAlert("Alert", "Could not assign climate to your location", "OK");
+                    App.Current.MainPage.DisplayAlert("Alert", "Crops cannot grow in your climate zone", "OK");
                 }
             }
             catch (Exception e)

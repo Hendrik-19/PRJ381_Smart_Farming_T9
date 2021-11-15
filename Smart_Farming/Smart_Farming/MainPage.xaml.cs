@@ -34,11 +34,11 @@ namespace Smart_Farming
             }
 
             //To display the second page with results
-            if (crops.Count > 0)
+            if (crops.Count > 0 && loc.ClimateID == 0)
             {
                 await Navigation.PushAsync(new Page1(crops));
             }
-            else
+            else if (crops.Count > 0 && loc.ClimateID != 0)
             {
                 await DisplayAlert("Alert", "The application could not suggest any crops for your location", "OK");
             }
