@@ -34,7 +34,7 @@ namespace Smart_Farming
             }
 
             //To display the second page with results
-            if (crops.Count > 0 && loc.ClimateID == 0)
+            if (crops.Count > 0 && loc.ClimateID == 0)//Todo: Second page not working
             {
                 await Navigation.PushAsync(new Page1(crops));
             }
