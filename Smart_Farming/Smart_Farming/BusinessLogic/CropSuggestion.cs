@@ -17,7 +17,7 @@ namespace Smart_Farming.BusinessLogic
         #region Functionality
         public async Task<List<Crop>> getCrops(Location loc)
         {
-            Datahandler_2 handler = new Datahandler_2();
+            Datahandler handler = new Datahandler();
             
             List<Crop> crops = new List<Crop>();
             crops = handler.getCropList();

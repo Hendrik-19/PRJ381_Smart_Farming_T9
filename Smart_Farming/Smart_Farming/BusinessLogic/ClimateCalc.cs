@@ -21,7 +21,7 @@ namespace Smart_Farming.BusinessLogic
         {
             int LocationClimateID = 0;
 
-            Datahandler_2 datahandler = new Datahandler_2();
+            Datahandler datahandler = new Datahandler();
 
             List<Climates> climateList = new List<Climates>();
 

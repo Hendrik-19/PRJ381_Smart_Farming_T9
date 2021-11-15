@@ -118,6 +118,7 @@ namespace Smart_Farming.BusinessLogic
                     //assign climate to location
                     ClimateCalc cc = new ClimateCalc();
                     this.ClimateID = cc.assignClimate(this.avgMaxTemp, this.avgMinTemp, this.avgPercipitation);
+                    await App.Current.MainPage.DisplayAlert("Alert", $"{this.ClimateID}", "OK");
                 }
             }
             catch (Exception ex)

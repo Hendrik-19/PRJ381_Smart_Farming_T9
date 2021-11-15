@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Smart_Farming.DataAccess
 {
-    class Datahandler_2 //class for dumy values for testing until database works
+    class Datahandler //class for dumy values for testing until database works
     { 
         public List<Climates> getClimateList()
         {
