@@ -15,7 +15,7 @@ namespace Smart_Farming.BusinessLogic
         string cropName, sowTime;
         double harvestTime, irrigationAmount;
         string pests;
-        Image cropImage;
+        string cropImage;
         int climateID;
 
         // public properties 
@@ -25,11 +25,11 @@ namespace Smart_Farming.BusinessLogic
         public double HarvestTime { get => harvestTime; set => harvestTime = value; }
         public double IrrigationAmount { get => irrigationAmount; set => irrigationAmount = value; }
         public string Pests { get => pests; set => pests = value; }
-        public Image CropImage { get => cropImage; set => cropImage = value; }
+        public string CropImage { get => cropImage; set => cropImage = value; }
         public int ClimateID { get => climateID; set => climateID = value; }
 
         // public constructor
-        public Crop(int cropID, string cropName, string sowTime, double harvestTime, double irrigationAmount, string pests, Image cropImage, int climateID)
+        public Crop(int cropID, string cropName, string sowTime, double harvestTime, double irrigationAmount, string pests, string cropImage, int climateID)
         {
             this.cropID = cropID;
             this.cropName = cropName;
@@ -51,7 +51,7 @@ namespace Smart_Farming.BusinessLogic
                    HarvestTime == crop.HarvestTime &&
                    IrrigationAmount == crop.IrrigationAmount &&
                    Pests == crop.Pests &&
-                   EqualityComparer<Image>.Default.Equals(CropImage, crop.CropImage) &&
+                   CropImage == crop.CropImage &&
                    ClimateID == crop.ClimateID;
         }
 
@@ -65,7 +65,7 @@ namespace Smart_Farming.BusinessLogic
             hashCode = hashCode * -1521134295 + harvestTime.GetHashCode();
             hashCode = hashCode * -1521134295 + irrigationAmount.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(pests);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Image>.Default.GetHashCode(cropImage);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(cropImage);
             hashCode = hashCode * -1521134295 + climateID.GetHashCode();
             return hashCode;
         }
