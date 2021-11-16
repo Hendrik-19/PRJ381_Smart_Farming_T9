@@ -32,7 +32,7 @@ namespace Smart_Farming
                 croplist.Add(item);
             }
 
-            Img.Source = croplist[0].CropImage.Source;
+            Img.Source = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile(croplist[0].CropImage) : ImageSource.FromFile(croplist[0].CropImage);
             lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";
             lblSTime.Text = "Sow time: " + croplist[0].SowTime.ToString();
             lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + "";//add appropriate info
@@ -50,7 +50,7 @@ namespace Smart_Farming
                     counter = 0;
                 }
 
-                Img = croplist[counter].CropImage;
+                Img.Source = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile(croplist[counter].CropImage) : ImageSource.FromFile(croplist[counter].CropImage);
                 lblCName.Text = "Crop name: " + croplist[counter].CropName.ToString();
                 lblSTime.Text = "Sow time: " + croplist[counter].SowTime.ToString();
                 lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + "";//add appropriate info
@@ -74,7 +74,7 @@ namespace Smart_Farming
                     counter = croplist.Count - 1;
                 }
 
-                Img = croplist[counter].CropImage;
+                Img.Source = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile(croplist[counter].CropImage) : ImageSource.FromFile(croplist[counter].CropImage);
                 lblCName.Text = "Crop name: " + croplist[counter].CropName.ToString();
                 lblSTime.Text = "Sow time: " + croplist[counter].SowTime.ToString();
                 lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + "";//add appropriate info
