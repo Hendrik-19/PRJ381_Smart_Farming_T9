@@ -75,7 +75,7 @@ namespace Smart_Farming.BusinessLogic
 
         Climates climate = new Climates();
 
-        public async void  GetLocation()
+        public async Task  GetLocation()
         {
             List<double> ave = new List<double>();
 
@@ -118,7 +118,6 @@ namespace Smart_Farming.BusinessLogic
                     //assign climate to location
                     ClimateCalc cc = new ClimateCalc();
                     this.ClimateID = cc.assignClimate(this.avgMaxTemp, this.avgMinTemp, this.avgPercipitation);
-                    await App.Current.MainPage.DisplayAlert("Alert", $"ClimateID assigned to location: {this.ClimateID}", "OK");//This is just to test that a climate was assigned to location
                 }
             }
             catch (Exception ex)
