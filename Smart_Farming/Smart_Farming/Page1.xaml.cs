@@ -21,6 +21,7 @@ namespace Smart_Farming
         
         public Page1(List<Crop> crops)
         {
+            InitializeComponent();
             PopulatePage(crops);
         }
 
@@ -32,7 +33,7 @@ namespace Smart_Farming
             }
 
             Img = croplist[0].CropImage;
-            lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";//Todo: Fix 'Object reference not set to an instance of an object' here on this line?
+            lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";
             lblSTime.Text = "Sow time: " + croplist[0].SowTime.ToString();
             lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + "";//add appropriate info
             lblIAmmount.Text = "Irrigation amount needed: " + croplist[0].IrrigationAmount.ToString() + "";//add appropriate info
