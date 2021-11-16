@@ -32,7 +32,7 @@ namespace Smart_Farming
                 croplist.Add(item);
             }
 
-            Img = croplist[0].CropImage;
+            Img.Source = croplist[0].CropImage.Source;
             lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";
             lblSTime.Text = "Sow time: " + croplist[0].SowTime.ToString();
             lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + "";//add appropriate info

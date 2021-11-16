@@ -33,7 +33,7 @@
 
         </Label>
 
-        <StackLayout Padding="0,80,0,0">
+        <StackLayout Padding="0,40,0,0">
 
             <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
                     BorderColor="Black" BorderWidth="2" Text="Get started !" 
