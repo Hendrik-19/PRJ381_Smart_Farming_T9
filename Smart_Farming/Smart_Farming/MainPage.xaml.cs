@@ -43,6 +43,6 @@ namespace Smart_Farming
                 await DisplayAlert("Alert", "The application could not suggest any crops for your location", "OK");
             }
 
-}
+        }
     }
 }
