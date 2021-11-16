@@ -33,12 +33,12 @@ namespace Smart_Farming.DataAccess
         {
             List<Crop> crops = new List<Crop>();
 
-            crops.Add(new Crop(1,"Sweetcorn", "August-March", 18, 20, "Bollworm", new Image { Source = "C:\\Users\\jppri\\Pictures\\SmartFarming\\sweetcorn.jpg" },1));
-            crops.Add(new Crop(2, "Potato", "August-June", 18, 20, "Bollworm", new Image { Source = "C:\\Users\\jppri\\Pictures\\SmartFarming\\sweetcorn.jpg" },2));
-            crops.Add(new Crop(3, "Butternut", "September-December", 18, 20, "Bollworm", new Image { Source = "C:\\Users\\jppri\\Pictures\\SmartFarming\\sweetcorn.jpg" },3));
-            crops.Add(new Crop(4, "Cabbage", "March-September", 18, 20, "Bollworm", new Image { Source = "C:\\Users\\jppri\\Pictures\\SmartFarming\\sweetcorn.jpg" },4));
-            crops.Add(new Crop(5, "Onion", "January-April", 18, 20, "Bollworm", new Image { Source = "C:\\Users\\jppri\\Pictures\\SmartFarming\\sweetcorn.jpg" },5));
-            crops.Add(new Crop(6, "Onion", "January-April", 18, 20, "Bollworm", new Image { Source = "C:\\Users\\jppri\\Pictures\\SmartFarming\\sweetcorn.jpg" },9));
+            crops.Add(new Crop(1,"Sweetcorn", "August-March", 18, 20, "Bollworm",  "C:\\Users\\jppri\\Pictures\\SmartFarming\\sweetcorn.jpg" ,1));
+            crops.Add(new Crop(2, "Potato", "August-June", 18, 20, "Bollworm", "C:\\Users\\jppri\\Pictures\\SmartFarming\\potato.jpg", 2));
+            crops.Add(new Crop(3, "Butternut", "September-December", 18, 20, "Bollworm", "C:\\Users\\jppri\\Pictures\\SmartFarming\\butternut.jpg", 3));
+            crops.Add(new Crop(4, "Cabbage", "March-September", 18, 20, "Bollworm", "C:\\Users\\jppri\\Pictures\\SmartFarming\\cabbage.jpg", 4));
+            crops.Add(new Crop(5, "Onion", "January-April", 18, 20, "Bollworm", "C:\\Users\\jppri\\Pictures\\SmartFarming\\onion.jpg", 5));
+            crops.Add(new Crop(6, "Onion", "January-April", 18, 20, "Bollworm", "C:\\Users\\jppri\\Pictures\\SmartFarming\\onion.jpg", 9));
 
             return crops;
         } 
