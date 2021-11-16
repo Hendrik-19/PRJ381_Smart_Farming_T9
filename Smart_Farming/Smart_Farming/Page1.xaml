@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_Farming.Page1">
-    <ContentPage.Content>
-        <StackLayout>
+    <StackLayout>
 
             <Frame BackgroundColor="LightBlue" >
 
@@ -54,5 +53,4 @@
 
             </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

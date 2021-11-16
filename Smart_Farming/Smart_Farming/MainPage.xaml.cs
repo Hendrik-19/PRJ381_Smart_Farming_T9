@@ -52,7 +52,7 @@ namespace Smart_Farming
             //To display the second page with results
             if (crops.Count > 0 && loc.ClimateID != 0)//Opens second page with a list of crop suggestions
             {
-                await Navigation.PushAsync(new Page1());
+                await Navigation.PushAsync(new Page1(crops));
             }
             else if (crops.Count == 0 && loc.ClimateID != 0)//Displays an error if a climate was assigned to a location, but no crops were assigned to the climate
             {

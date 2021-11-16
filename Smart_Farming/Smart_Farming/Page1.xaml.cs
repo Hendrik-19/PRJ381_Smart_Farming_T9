@@ -10,20 +10,29 @@ using Xamarin.Forms.Xaml;
 namespace Smart_Farming
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class Page1 : ContentPage //Todo: Fix object does not have an object reference error
     {
         public Page1()
         {
             InitializeComponent();
         }
-
-        List<Crop> croplist = new List<Crop>();
         int counter = 0;
+        List<Crop> croplist = new List<Crop>();
+        
         public Page1(List<Crop> crops)
         {
-            croplist = crops;
-            Img = croplist[counter].CropImage;
-            lblCName.Text = "Crop name: " + croplist[0].CropName.ToString();
+            PopulatePage(crops);
+        }
+
+        public void PopulatePage(List<Crop> crops)
+        {
+            foreach (Crop item in crops)
+            {
+                croplist.Add(item);
+            }
+
+            Img = croplist[0].CropImage;
+            lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";
             lblSTime.Text = "Sow time: " + croplist[0].SowTime.ToString();
             lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + "";//add appropriate info
             lblIAmmount.Text = "Irrigation amount needed: " + croplist[0].IrrigationAmount.ToString() + "";//add appropriate info
