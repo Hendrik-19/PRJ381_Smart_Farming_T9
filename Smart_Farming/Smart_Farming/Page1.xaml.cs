@@ -42,7 +42,7 @@ namespace Smart_Farming
 
         private async void Button_Clicked_Next(object sender, EventArgs e)
         {
-            if (croplist.Count > 0) //if the crop list has multiple crop selections, allows the user to loop through the suggestions
+            if (croplist.Count > 0 && croplist.Count != 1) //if the crop list has multiple crop selections, allows the user to loop through the suggestions
             {
                 counter++;
                 if (counter > croplist.Count)
@@ -66,7 +66,7 @@ namespace Smart_Farming
 
         private async void Button_Clicked_Previous(object sender, EventArgs e)
         {
-            if (croplist.Count > 0) //if the crop list has multiple crop selections, allows the user to loop through the suggestions
+            if (croplist.Count > 0 && croplist.Count != 1) //if the crop list has multiple crop selections, allows the user to loop through the suggestions
             {
                 counter--;
                 if (counter < 0)
