@@ -32,7 +32,7 @@ namespace Smart_Farming
             }
 
             Img = croplist[0].CropImage;
-            lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";
+            lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";//Todo: Fix 'Object reference not set to an instance of an object' here on this line?
             lblSTime.Text = "Sow time: " + croplist[0].SowTime.ToString();
             lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + "";//add appropriate info
             lblIAmmount.Text = "Irrigation amount needed: " + croplist[0].IrrigationAmount.ToString() + "";//add appropriate info
