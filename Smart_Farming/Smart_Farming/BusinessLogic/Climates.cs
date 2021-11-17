@@ -5,6 +5,7 @@ using System.Linq;
 using Xamarin.Forms; // if we need some popup messages
 using System.Net.Http;//base class to perform http functions
 using Newtonsoft.Json;//nuget package to convert json files
+using System.Threading.Tasks;
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -66,9 +67,8 @@ namespace Smart_Farming.BusinessLogic
         #endregion
 
         #region Functionality
-        public async void getWebResponse(double Latitude, double Longitude)
+        public async Task<List<double>> getWebResponse(double Latitude, double Longitude)
         {
-
             List<double> ave = new List<double>();
             WeatherCalc wc = new WeatherCalc();
 
@@ -88,16 +88,10 @@ namespace Smart_Farming.BusinessLogic
                 ave.Add(wc.getAvgPrecipitation(posts.Data.Monthly));
             }
 
-             //Assign ave list to averages list so that it can be returned
-             averages = ave;
-        }
+            //Assign ave list to averages list so that it can be returned
+            var temp = ave;
 
-        public List<double> getWeatherStats(double Latitude, double Longitude)
-        {
-            getWebResponse(Latitude,Longitude);
-
-            //Return averages
-            return averages;
+            return temp.ToList();
         }
         #endregion
     }

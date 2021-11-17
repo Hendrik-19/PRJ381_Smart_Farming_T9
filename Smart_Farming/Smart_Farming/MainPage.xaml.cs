@@ -12,6 +12,9 @@ namespace Smart_Farming
 {
     public partial class MainPage : ContentPage
     {
+        BusinessLogic.Location loc = new BusinessLogic.Location();
+        List<Crop> crops = new List<Crop>();
+
         public MainPage()
         {
             InitializeComponent();
@@ -19,25 +22,44 @@ namespace Smart_Farming
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            BusinessLogic.Location loc = new BusinessLogic.Location();
-            loc.GetLocation();
+            await populateLocation();
 
-            BusinessLogic.CropSuggestion suggestion = new CropSuggestion();
+            await populateCropList();
 
-            List<Crop> crops = new List<Crop>();
+            await displayNewPage();
+        }
 
-            crops = suggestion.getCrops(loc);
+        private async Task populateLocation()
+        {
+            await loc.GetLocation();
+        }
 
-            //To display the second page with results
-            //if (crops.Count > 0)
-            //{
-            await Navigation.PushAsync(new Page1(crops));
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Alert", "The application could not suggest any crops for your location", "OK");
-            //}
+        private async Task populateCropList()
+        {
+            CropSuggestion suggestion = new CropSuggestion();
 
+            var tempCrops = await suggestion.GetCrops(loc);
+
+            foreach (Crop item in tempCrops)
+            {
+                crops.Add(item);
+            }
+        }
+
+        private async Task displayNewPage()
+        {
+            if(crops.Count > 0 && loc.ClimateID != 1)
+            {
+                await Navigation.PushAsync(new Page1(crops));
+            }
+            else if (crops.Count == 0 && loc.ClimateID != 0)
+            {
+                await DisplayAlert("Alert", "The application could not suggest any crops for your location", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Something went wrong...", "OK");
+            }
         }
     }
 }

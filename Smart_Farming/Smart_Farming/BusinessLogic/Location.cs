@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials; // api that allows location services
 using Xamarin.Forms; // allows for xamarin form methods like a popup message
+using System.Threading.Tasks;
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -66,18 +67,13 @@ namespace Smart_Farming.BusinessLogic
         #endregion
 
         #region Functionality
-        public void getResults(int climateId)
-        {
-            // stuff to be done
-        }
-
         Climates climate = new Climates();
 
-        public async void  GetLocation()
+        public async Task GetLocation()
         {
             List<double> ave = new List<double>();
 
-            try //Todo: App breaks in this try block , we need to fix it
+            try
             {
                 var location = await Geolocation.GetLastKnownLocationAsync(); // this gets the last location that is saved in the device cache
                 if (location == null) // this checks of a location saved in the cache, if it is empty then it will request a location
@@ -100,7 +96,12 @@ namespace Smart_Farming.BusinessLogic
 
                     //assigns max temp, min temp and average percipitiation to location from API
                     Climates climate = new Climates();
-                    ave = climate.getWeatherStats(this.Latidue, this.Longitude);
+                    var temp = await climate.getWebResponse(this.Latidue, this.Longitude);
+
+                    foreach(Double item in temp)
+                    {
+                        ave.Add(item);
+                    }
 
                     this.avgMaxTemp = ave[0];
                     this.avgMinTemp = ave[1];

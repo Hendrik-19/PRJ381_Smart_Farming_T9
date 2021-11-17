@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_Farming.Page1">
-    <ContentPage.Content>
-        <StackLayout>
+    <StackLayout>
 
             <Frame BackgroundColor="LightBlue" >
 
@@ -36,23 +35,17 @@
                 <Label x:Name="lblPests" Text="Common pests: " ClassId="Pests"></Label>
             </Frame>
 
-            <StackLayout Padding="0,80,0,0">
+            <StackLayout Padding="35,320,0,0" Orientation="Horizontal">
 
-                <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
-                    BorderColor="Black" BorderWidth="2" Text="Next suggestion" 
-                    WidthRequest="300" HeightRequest="80" HorizontalOptions="Center"
+                <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="14" 
+                    BorderColor="Black" BorderWidth="2" Text="Previous" 
+                    WidthRequest="150" HeightRequest="45" HorizontalOptions="Center"
+                    CornerRadius="8" Clicked="Button_Clicked_Previous" Margin="0,0,30,0"/>
+                <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="14" 
+                    BorderColor="Black" BorderWidth="2" Text="Next" 
+                    WidthRequest="150" HeightRequest="45" HorizontalOptions="Center"
                     CornerRadius="8" Clicked="Button_Clicked_Next"/>
-
             </StackLayout>
 
-            <StackLayout Padding="0,80,0,0">
-
-                <Button BackgroundColor="LightBlue" TextColor="Black" FontSize="28" 
-                    BorderColor="Black" BorderWidth="2" Text="Previous suggestion" 
-                    WidthRequest="300" HeightRequest="80" HorizontalOptions="Center"
-                    CornerRadius="8" Clicked="Button_Clicked_Previous"/>
-
-            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

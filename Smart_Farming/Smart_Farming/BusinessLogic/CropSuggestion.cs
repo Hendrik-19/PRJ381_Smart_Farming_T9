@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Smart_Farming.DataAccess;
 using System.Data; // this is to use a datatable
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -15,7 +17,7 @@ namespace Smart_Farming.BusinessLogic
         #region Functionality
         List<Crop> crops = new List<Crop>();
 
-        public async void GetCropData(Location loc)
+        public async Task<List<Crop>> GetCrops(Location loc)
         {
             SmartFarmingBD db = new SmartFarmingBD();
             string query = $"SELECT Crops.CropID, Crops.CropName, Crops.Sowtime, Crops.HarvestTime, Crops.IrrigationAmount, Crops.Pests, Crops.CropImage FROM Crops INNER JOIN ClimateArea_Crops ON ClimateArea_Crops.CropID = Crops.CropID WHERE ClimateArea_Crops.Climate_ID = {loc.ClimateID}";
@@ -26,13 +28,10 @@ namespace Smart_Farming.BusinessLogic
             {
                 crops.Add(new Crop(item.CropID, item.CropName, item.SowTime, item.HarvestTime, item.IrrigationAmount, item.Pests));
             }
-        }
 
-        public List<Crop> getCrops(Location loc)
-        {
-            GetCropData(loc);
+            var temp = crops;
 
-            return crops;
+            return temp.ToList();
         }
         #endregion
     }
