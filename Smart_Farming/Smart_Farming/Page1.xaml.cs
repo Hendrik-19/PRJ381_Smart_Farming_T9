@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace Smart_Farming
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage //Todo: Fix object does not have an object reference error
+    public partial class Page1 : ContentPage 
     {
         public Page1()
         {
@@ -22,10 +22,10 @@ namespace Smart_Farming
         public Page1(List<Crop> crops)
         {
             InitializeComponent();
-            PopulatePage(crops);
+            populatePage(crops);
         }
 
-        public void PopulatePage(List<Crop> crops)
+        public void populatePage(List<Crop> crops)
         {
             foreach (Crop item in crops)
             {

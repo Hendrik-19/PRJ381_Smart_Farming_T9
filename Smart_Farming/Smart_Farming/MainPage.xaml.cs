@@ -25,9 +25,9 @@ namespace Smart_Farming
         {
             await populateLocationObj();
 
-            await PopulateCropList();
+            await populateCropList();
 
-            await DisplayNewPage();
+            await displayNewPage();
         }
 
         private async Task populateLocationObj()
@@ -35,7 +35,7 @@ namespace Smart_Farming
             await loc.GetLocation();
         }
 
-        private async Task PopulateCropList()
+        private async Task populateCropList()
         {
             CropSuggestion suggestion = new CropSuggestion();
 
@@ -47,7 +47,7 @@ namespace Smart_Farming
             }
         }
 
-        private async Task DisplayNewPage()
+        private async Task displayNewPage()
         {
             //To display the second page with results
             if (crops.Count > 0 && loc.ClimateID != 0)//Opens second page with a list of crop suggestions
@@ -60,7 +60,7 @@ namespace Smart_Farming
             }
             else
             {
-                await DisplayAlert("Alert", "Unkown error occured", "OK");
+                await DisplayAlert("Alert", "Something went wrong", "OK");
             }
         }
     }

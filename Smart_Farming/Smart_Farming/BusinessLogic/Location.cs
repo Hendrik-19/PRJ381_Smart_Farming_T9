@@ -68,14 +68,9 @@ namespace Smart_Farming.BusinessLogic
         #endregion
 
         #region Functionality
-        public void getResults(int climateId)
-        {
-            // stuff to be done
-        }
+         Climates climate = new Climates();
 
-        Climates climate = new Climates();
-
-        public async Task  GetLocation()
+        public async Task GetLocation()
         {
             List<double> ave = new List<double>();
 
