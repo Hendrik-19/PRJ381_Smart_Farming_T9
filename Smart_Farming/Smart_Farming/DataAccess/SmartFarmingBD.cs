@@ -19,6 +19,7 @@ namespace Smart_Farming.DataAccess
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<CropTable>().Wait();
             database.CreateTableAsync<ClimateAreaTable>().Wait();
+            database.CreateTableAsync<ClimateAreaCropsTable>().Wait();
         }
 
         public SmartFarmingBD()
