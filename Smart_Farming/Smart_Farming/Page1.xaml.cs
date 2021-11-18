@@ -35,8 +35,8 @@ namespace Smart_Farming
             CropImage.Source = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile(croplist[0].CropImage) : ImageSource.FromFile(croplist[0].CropImage); //Todo: Fix image
             lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";
             lblSTime.Text = "Sow time: " + croplist[0].SowTime.ToString();
-            lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + " weeks";//add appropriate info
-            lblIAmmount.Text = "Irrigation amount needed: " + croplist[0].IrrigationAmount.ToString() + "";//add appropriate info
+            lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + " weeks";
+            lblIAmmount.Text = "Irrigation amount needed: " + croplist[0].IrrigationAmount.ToString() + " liters per week";
             lblPests.Text = "Common pests: " + croplist[0].Pests.ToString();
         }
 
