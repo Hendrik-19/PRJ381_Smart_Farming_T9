@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SQLite;
-using SQLiteNetExtensions.Attributes;
+using SQLite; // used to access the SQLite database
+using SQLiteNetExtensions.Attributes; // used to create a one to many relationship
 
 namespace Smart_Farming.DataAccess
 {
+    // This class is used to create a table in the database for the climate data
+    #region Climate_Table
     [Table("ClimateArea")] // this is the schema for the ClimateArea table in our sqlite database
     public class ClimateAreaTable
     {
@@ -23,4 +25,5 @@ namespace Smart_Farming.DataAccess
 
         public double MaxPercip { get; set; }
     }
+    #endregion
 }

@@ -7,6 +7,7 @@ namespace Smart_Farming.BusinessLogic
 {
     public class Weather
     {
+        // The Weather, webData and WebResponse classes are used to map the API JSON response to C# variables
         #region Weather
         int month;
         double temperatureMin, temperatureMax, totalPrecipitation, cloudCover, sunshineHours;

@@ -2,16 +2,16 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
-using Smart_Farming.DataAccess;
+using Smart_Farming.DataAccess; // used to access the database class
 
 namespace Smart_Farming
 {
     public partial class App : Application
     {
-        static SmartFarmingBD database;
+        static SmartFarmingBD database; // create a static database variable
 
         //Creating database as singleton
-        public static SmartFarmingBD Database
+        public static SmartFarmingBD Database // checks for the database in the Special Folder and if it does not exist it will create it and return that connection
         {
             get
             {
@@ -27,7 +27,7 @@ namespace Smart_Farming
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage()); // enables the application to have multiple pages
         }
 
         protected override void OnStart()

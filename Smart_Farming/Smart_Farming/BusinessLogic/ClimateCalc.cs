@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Smart_Farming.DataAccess;
+using Smart_Farming.DataAccess; // needed to access the dataAccess folder
 using System.Data; //needed to create a datatable
 
 namespace Smart_Farming.BusinessLogic
@@ -34,22 +34,18 @@ namespace Smart_Farming.BusinessLogic
         {
             int LocationClimateID = 0;
             GetClimateData();
-            //logic //TODO: Tweak Algorithm as needed
-
             /*
              * 1: Loop climate list
-             * 2: Compare current location vals to indexed climate vals
-             * 3: If location vals are within a certain variance of indexed climate -> assign indexed climate id to location.climateId
+             * 2: Compare current location values to indexed climate vals
+             * 3: If location values are within a certain variance of indexed climate -> assign indexed climate id to location.climateId
              * 4: Else continue looping
              */
 
             try
             {
-                foreach (var climate in climateList)//TODO:Look at ways to handle edge cases as needed
+                foreach (var climate in climateList)
                 {
                     //Climate assignment criteria:
-                    // (climate.min <= min <= climate.min) AND ( climate.max <= max <= climate.max) AND (climate.minPercipitation <= percipitation <= climate.maxPercipitation)
-
                     if ((climate.AvgMinTemp <= minTemp) && (maxTemp <= climate.AvgMaxTemp) && (climate.MinPercipitation <= avePercipitation) && (avePercipitation <= climate.MaxPercipitation))
                     {
                         LocationClimateID = climate.ClimateId;//Climate assigned

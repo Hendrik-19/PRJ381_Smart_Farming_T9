@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using Xamarin.Forms; // if we need some popup messages
-using System.Net.Http;//base class to perform http functions
-using Newtonsoft.Json;//nuget package to convert json files
-using System.Threading.Tasks;
+using Xamarin.Forms; // used for pop up messages
+using System.Net.Http; // base class to perform http functions
+using Newtonsoft.Json; // nuget package to convert json files
+using System.Threading.Tasks; // Multithreading.
 
 namespace Smart_Farming.BusinessLogic
 {
@@ -79,10 +79,10 @@ namespace Smart_Farming.BusinessLogic
                 var uri = "https://api.troposphere.io/climate/" + Latitude + "," + Longitude + "?token=d9d3ad8690f331dbe20920fcaa9837f40607b6c1b274eae389";//url to get the yearly average data from api
                 var result = await client.GetStringAsync(uri);
 
-                //handling the answer  
+                // handling the answer  
                 var posts = JsonConvert.DeserializeObject<WebResponse>(result);
 
-                //takes list as parameter to calculate average values
+                // takes list as parameter to calculate average values
                 ave.Add(wc.getAvgMaxTemp(posts.Data.Monthly));
                 ave.Add(wc.getAvgMinTemp(posts.Data.Monthly));
                 ave.Add(wc.getAvgPrecipitation(posts.Data.Monthly));

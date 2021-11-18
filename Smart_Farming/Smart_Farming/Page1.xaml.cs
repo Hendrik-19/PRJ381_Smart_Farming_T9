@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Xamarin.Forms; 
+using Xamarin.Forms.Xaml; // used to manipulate the form elements
 
 namespace Smart_Farming
 {
@@ -26,7 +26,7 @@ namespace Smart_Farming
             populatePage(crops);
         }
 
-        private void populatePage(List<Crop> crops)
+        private void populatePage(List<Crop> crops) // populates the form elements with the results received from the database
         {
             foreach (Crop item in crops)
             {
@@ -41,7 +41,7 @@ namespace Smart_Farming
             lblPests.Text = $"Common pests: {croplist[0].Pests.ToString()}";
         }
 
-        private async void Button_Clicked_Next(object sender, EventArgs e)
+        private async void Button_Clicked_Next(object sender, EventArgs e) 
         {
             if (croplist.Count > 0 && croplist.Count != 1) //if the crop list has multiple crop selections, allows the user to loop through the suggestions
             {

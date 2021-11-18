@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+using System.Threading.Tasks; // used for multithreading.
+using Xamarin.Forms; // used to access form elements
 using Xamarin.Essentials;
-using Smart_Farming.BusinessLogic;
+using Smart_Farming.BusinessLogic; // used to access the business logic classes
 
 namespace Smart_Farming
 {
@@ -20,7 +20,7 @@ namespace Smart_Farming
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e) // access methods asyncronously because some actions can take some time and this prevents it from executing code that has not yet finished
         {
             await populateLocation();
 

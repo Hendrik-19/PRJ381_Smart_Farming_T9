@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials; // api that allows location services
 using Xamarin.Forms; // allows for xamarin form methods like a popup message
-using System.Threading.Tasks;
+using System.Threading.Tasks; // used in multithreading
 
 namespace Smart_Farming.BusinessLogic
 {
     public class Location
     {
-        // here the manilulation of the results from the api will be manipulated and sent to the database so that it can retrieve the apprpriate results
-        // remeber to get the data from the form and send it here.
-
+        // here the results from the API will be manipulated and sent to the database so that it can retrieve the apprpriate results
         #region Location
         int climateID;
         double latidue, longitude, avgMaxTemp, avgMinTemp, avgPercipitation;
@@ -114,7 +112,7 @@ namespace Smart_Farming.BusinessLogic
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK"); // This is an error message that will display when the app is having dificulties picking up location services
+                await App.Current.MainPage.DisplayAlert("Alert", "Unable to access location services.", "OK"); // This is an error message that will display when the app is having dificulties picking up location services
             }
         }
         #endregion

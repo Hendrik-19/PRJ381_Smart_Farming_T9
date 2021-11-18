@@ -6,6 +6,7 @@ namespace Smart_Farming.BusinessLogic
 {
     public class WebResponse
     {
+        // The Weather, webData and WebResponse classes are used to map the API JSON response to C# variables
         #region webResponse
         Nullable<int> error;
         webData data = new webData();
