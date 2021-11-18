@@ -35,7 +35,7 @@ namespace Smart_Farming
             CropImage.Source = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile(croplist[0].CropImage) : ImageSource.FromFile(croplist[0].CropImage); //Todo: Fix image
             lblCName.Text = $"Crop name: {croplist[0].CropName.ToString()}";
             lblSTime.Text = "Sow time: " + croplist[0].SowTime.ToString();
-            lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + "";//add appropriate info
+            lblHTime.Text = "Harvest time: " + croplist[0].HarvestTime.ToString() + " weeks";//add appropriate info
             lblIAmmount.Text = "Irrigation amount needed: " + croplist[0].IrrigationAmount.ToString() + "";//add appropriate info
             lblPests.Text = "Common pests: " + croplist[0].Pests.ToString();
         }
@@ -53,7 +53,7 @@ namespace Smart_Farming
                 CropImage.Source = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile(croplist[counter].CropImage) : ImageSource.FromFile(croplist[counter].CropImage);
                 lblCName.Text = "Crop name: " + croplist[counter].CropName.ToString();
                 lblSTime.Text = "Sow time: " + croplist[counter].SowTime.ToString();
-                lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + "";//add appropriate info
+                lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + " weeks";//add appropriate info
                 lblIAmmount.Text = "Irrigation amount needed: " + croplist[counter].IrrigationAmount.ToString() + "";//add appropriate info
                 lblPests.Text = "Common pests: " + croplist[counter].Pests.ToString();
             }
@@ -77,7 +77,7 @@ namespace Smart_Farming
                 CropImage.Source = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile(croplist[counter].CropImage) : ImageSource.FromFile(croplist[counter].CropImage);
                 lblCName.Text = "Crop name: " + croplist[counter].CropName.ToString();
                 lblSTime.Text = "Sow time: " + croplist[counter].SowTime.ToString();
-                lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + "";//add appropriate info
+                lblHTime.Text = "Harvest time: " + croplist[counter].HarvestTime.ToString() + " weeks";//add appropriate info
                 lblIAmmount.Text = "Irrigation amount needed: " + croplist[counter].IrrigationAmount.ToString() + "";//add appropriate info
                 lblPests.Text = "Common pests: " + croplist[counter].Pests.ToString();
             }
